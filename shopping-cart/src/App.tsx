@@ -3,13 +3,17 @@ import './App.css';
 
 import ProductsList from './Products/ProductsList';
 import ProductForm from './Products/ProductForm';
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
   return (
-    <div className="App">
-      <ProductsList />
-      <ProductForm />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <ProductsList />
+        <ProductForm />
+      </div>
+    </Provider>
   );
 }
 
