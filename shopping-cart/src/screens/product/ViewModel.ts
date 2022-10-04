@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { RootState } from "../store";
+import { RootState } from "../../store";
 
 export interface Product {
     title: string;
@@ -17,7 +17,7 @@ const initialState: Product[] = [
     { id: 4, title: "Maja Blanca Mix", price: 25.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4800552169066-01.jpg"},
 ]
 
-const productsSlice = createSlice({
+const ViewModel = createSlice({
     name: 'products',
     initialState,
     reducers: {
@@ -30,8 +30,8 @@ const productsSlice = createSlice({
     }
 })
 
-export const { addProduct, removeProduct } = productsSlice.actions
+export const { addProduct, removeProduct } = ViewModel.actions
 
 export const getProductsSelector = (state: RootState) => state.products;
 
-export default productsSlice.reducer
+export default ViewModel.reducer

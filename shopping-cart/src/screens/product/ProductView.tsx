@@ -1,20 +1,25 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { addToCart, getCartProduct, removeFromCart } from "../Cart/cart.slice";
-import { useAppDispatch, useAppSelector } from "../hooks/store.hooks";
-import { getProductsSelector, Product,  } from "./products.slice";
+import { addToCart, getCartProduct, removeFromCart } from "../../cart/CartSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/store.hooks";
+import AddButton from "./components/AddButton";
+import RemoveButton from "./components/RemoveButton";
+import { getProductsSelector, Product } from "./ViewModel";
 
-const ProductsList: React.FC = () => {
+const ProductView: React.FC = () => {
 
+    //Get products
     const Products = useSelector(getProductsSelector)
 
+    //Get products from cart to get quantity
     const cartProducts = useAppSelector(getCartProduct)
     
+    //Dispatch pra sa redux reducers
     const dispatch = useAppDispatch()
 
-
-    const addToCartHandler = (product: Product) => dispatch(addToCart(product))
+    //Product Increment and Decrement
+    const handleAddToCart = (product: Product) => dispatch(addToCart(product))
     const handleRemoveFromCart = (productId: number) => dispatch(removeFromCart(productId))
 
     return (
@@ -38,12 +43,12 @@ const ProductsList: React.FC = () => {
                                         <span className="ms-2 text-muted">₱ {product.price}</span>
                                     </Card.Title>
                                     <div className="d-flex flex-row justify-content-between w-100">
-                                        <Button className="col-4" onClick={() => addToCartHandler(product)}>+</Button>
+                                        <span className="col-4" onClick={() => handleAddToCart(product)}><AddButton/></span>
                                         {
                                             cartProducts.map(cart =>
-                                                <span className="ml-4 mr-4">{cart.id == product.id ? cart.amount : null}</span>
+                                                <span className="ml-4 mr-4">{cart.id == product.id ? cart.amount > 0 ? cart.amount : 0 : null}</span>
                                         )}
-                                        <Button className="col-4" onClick={() => handleRemoveFromCart(product.id)} variant="danger">-</Button>
+                                        <span className="col-4" onClick={() => handleRemoveFromCart(product.id)}><RemoveButton/></span>
                                     </div>
                                 </Card.Body >
                             </Card>
@@ -54,4 +59,5 @@ const ProductsList: React.FC = () => {
     )
 }
 
-export default ProductsList
+export default ProductView
+
