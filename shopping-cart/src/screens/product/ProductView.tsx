@@ -1,11 +1,11 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { addToCart, getCartProduct, removeFromCart } from "../../cart/CartSlice";
+import { addToCart, getCartProduct, removeFromCart } from "../cart/cart.reducer";
 import { useAppDispatch, useAppSelector } from "../../hooks/store.hooks";
 import AddButton from "./components/AddButton";
 import RemoveButton from "./components/RemoveButton";
-import { getProductsSelector, Product } from "./ViewModel";
+import { getProductsSelector, Product } from "./product.reducer";
 
 const ProductView: React.FC = () => {
 
@@ -38,18 +38,21 @@ const ProductView: React.FC = () => {
                                 />
 
                                 <Card.Body className="d-flex flex-column">
+                                    
                                     <Card.Title className="d-flex flex-row justify-content-between align-items-baseline mb-4">
-                                        <span className="fs-.5">{product.title}</span>
+                                        <span className="fs-.5">{product.name}</span>
                                         <span className="ms-2 text-muted">₱ {product.price}</span>
                                     </Card.Title>
+
                                     <div className="d-flex flex-row justify-content-between w-100">
                                         <span className="col-4" onClick={() => handleAddToCart(product)}><AddButton/></span>
                                         {
-                                            cartProducts.map(cart =>
-                                                <span className="ml-4 mr-4">{cart.id == product.id ? cart.amount > 0 ? cart.amount : 0 : null}</span>
-                                        )}
+                                            cartProducts.length > 0 ? cartProducts.map(cart =>
+                                            <span className={`ml-4 mr-4 cart ${cart.id != product.id ? "d-none" : ""}`}>{cart.id == product.id ? cart.amount > 0 ? cart.amount : "0" : ""}</span>
+                                        ):0}
                                         <span className="col-4" onClick={() => handleRemoveFromCart(product.id)}><RemoveButton/></span>
                                     </div>
+
                                 </Card.Body >
                             </Card>
                         )
