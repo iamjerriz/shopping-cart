@@ -1,13 +1,12 @@
 import React from 'react'
-import { useAppSelector } from '../../../hooks/store.hooks'
-import { getTotalPrice } from '../cart.reducer'
+import UseViewModel from '../../../model/cartListModel'
 
 function CartTotalAmount() {
 
-  const totalPrice = useAppSelector(getTotalPrice)
+  const { getCartPrice } = UseViewModel();
 
   return (
-    <h5>Total: {totalPrice}</h5>
+    <h5>Total: {getCartPrice}</h5>
   )
 }
 
