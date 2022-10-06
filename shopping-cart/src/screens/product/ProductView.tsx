@@ -35,10 +35,10 @@ const ProductView: React.FC = () => {
                                         {
                                             getCartProducts.length > 0 ? getCartProducts.map(cart =>
                                                 <span className={`ml-4 mr-4 cart ${cart.id != product.id ? "d-none" : ""}`}>
-                                                    {cart.id == product.id ? cart.amount > 0 ? cart.amount : "0" : ""}
+                                                    {cart.id == product.id ? cart.amount > 0 ? cart.amount : "" : ""}
                                                 </span>
                                             )
-                                        :0}
+                                        :""}
                                         <span className="col-4" onClick={() => handleRemoveFromCart(product.id)}>
                                             <ProductButton text="-"/>
                                         </span>
