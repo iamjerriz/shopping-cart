@@ -16,7 +16,9 @@ const cartSlice = createSlice({
                 if (productIndex !== -1) {
                     state[productIndex].amount += 1;
                 } else {
-                    state.push({...action.payload, amount: 1})
+                    // state.push({...action.payload, amount: 1})
+                    // state = [...state, {...action.payload, amount: 1}]
+                    return [ ...state, {...action.payload, amount: 1}]
                 }
         },
         removeFromCart: (state, action: PayloadAction<number>) => {
