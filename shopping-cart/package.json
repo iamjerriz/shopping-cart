@@ -1,5 +1,5 @@
 {
-  "name": "shopping-cart-mvvm-ts-redux-v2",
+  "name": "shopping-cart-mvvm-ts-redux-v3",
   "version": "0.1.0",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
