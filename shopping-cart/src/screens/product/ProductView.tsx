@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import { ProductButton } from "./components/ProductButton";
 import UseViewModel from "../../model/productListModel";
+import Cart from "../cart/CartView";
+import { Product } from "../../redux/product.reducer";
 
-const ProductView: React.FC = () => {
-    const { handleRemoveFromCart, handleAddToCart, getProducts, getCartProducts } = UseViewModel();
+
+interface Props {
+    items: any[]
+  }
+  
+export const ProductView = ({items}: Props) => {
+    const { handleRemoveFromCart, handleAddToCart, getCartProducts } = UseViewModel();
+
+    const item = {items}
+
+    const [products] = useState([{item}]);
 
     return (
         <div className="w-50 text-center">
             <h1>Product List</h1>
                 <div className="d-flex flex-wrap">
                     {
-                        getProducts.map(product => 
+                        products[0].item.items[0].map((product: Product) => 
                             <Card className="d-flex bg-white shadow-sm mb-3 col-3" style={{width: "45%", margin: "2%"}}>
                                 <Card.Img 
                                     variant="top" 
@@ -49,6 +60,7 @@ const ProductView: React.FC = () => {
                         )
                     }
             </div>
+            <Cart/>
         </div>
     )
 }
