@@ -5,9 +5,10 @@ import { Product } from "../../redux/product.reducer";
 
 interface Props {
     items: any[]
+    title: string
   }
   
-export const ProductView = ({items}: Props) => {
+export const ProductView = ({items, title}: Props) => {
     const { handleRemoveFromCart, handleAddToCart, getCartProducts, getCartPrice } = UseViewModel();
 
 
@@ -15,10 +16,12 @@ export const ProductView = ({items}: Props) => {
 
     console.log("prods",items)
     return (
+        <div className="text-center w-100">
+            <h1>{title}</h1>
         <div className="d-flex text-center w-100">
             <div className="d-flex flex-wrap">
                 {
-                    items[0][0].map((product: Product) => 
+                    items[0][0][0].map((product: Product) => 
                         <Card className="d-flex bg-white shadow-sm mb-3 col-3" style={{width: "45%", margin: "2%"}}>
                             <Card.Img 
                                 variant="top" 
@@ -52,7 +55,7 @@ export const ProductView = ({items}: Props) => {
             </div>
 
             <div className="w-50 text-center">
-                <h1>Cart</h1>
+                <h3>Cart</h3>
                 <h5>Total: {getCartPrice}</h5>
                     {
                         getCartProducts.map(product => (
@@ -66,8 +69,8 @@ export const ProductView = ({items}: Props) => {
                         ))
                     }
             </div>
-
         </div>
+    </div>
     )
 }
 

@@ -4,7 +4,7 @@ A prototype of shopping cart using typescript and redux
 
 ## Installation
 
-npm i shopping-cart-mvvm-ts-redux-v2
+npm i shopping-cart-jerriz-v1
 
 ## Screenshots
 
@@ -12,11 +12,11 @@ npm i shopping-cart-mvvm-ts-redux-v2
 
 ## Documentation
 
-textProp = Property of object to display text for buttons
+items = array of products to display
 
-as
+title = string title of shopping cart to display
 
-## Products Data Model
+## Items Data Model
 
 name : string
 
@@ -31,66 +31,24 @@ imgUrl : any
 ## Usage/Examples
 
 ```javascript
-import React from "react";
-import { useDispatch } from "react-redux";
-import { useAppSelector } from "../hooks/store.hooks";
-import { getCartProduct, getTotalPrice, removeFromCart } from "../redux/cart.reducer";
+import CartComponent from "shopping-cart-mvvm-ts-redux-v7";
 
-export default function CartListModel() {
-  const dispatch = useDispatch();
-
-  const getCartProducts = useAppSelector(getCartProduct);
-
-  const getCartPrice = useAppSelector(getTotalPrice);
-
-  const handleRemoveFromCart = (productId: number) => dispatch(removeFromCart(productId));
-
-  return {
-    getCartProducts,
-    getCartPrice,
-    handleRemoveFromCart,
-  };
-}
-```
-
-```javascript
-import React from "react";
-import { Button } from "react-bootstrap";
-import UseViewModel from "../../../model/cartListModel";
-
-function CartProducts() {
-  const { handleRemoveFromCart, getCartProducts } = UseViewModel();
+function App() {
+  //items to pass to the cart component
+  //can be json file or product to call on
+  let sampleItems = [
+    { id: 1, name: "Product 1", price: 1.0, quantity: 0, imgUrl: "https://sample.jpg" },
+    { id: 2, name: "Product 2", price: 21.0, quantity: 0, imgUrl: "https://sample.jpg" },
+    { id: 3, name: "Product 3", price: 20.0, quantity: 0, imgUrl: "https://sample.jpg" },
+    { id: 4, name: "Product 4", price: 10.0, quantity: 0, imgUrl: "https://sample.jpg" },
+  ];
 
   return (
-    <>
-      {getCartProducts.map((product) => (
-        <div className="d-flex justify-content-evenly mb-4" key={product.id}>
-          <span style={{ minWidth: "135px" }}>{product.name}</span>
-          <span>{product.amount}</span>
-          <Button onClick={() => handleRemoveFromCart(product.id)} variant="danger">
-            Remove From Cart
-          </Button>
-        </div>
-      ))}
-    </>
-  );
-}
-```
-
-```javascript
-import React from "react";
-import CartProducts from "./components/CartProducts";
-import CartTotalAmount from "./components/CartTotalAmount";
-
-function Cart() {
-  return (
-    <div className="w-50 text-center">
-      <h1>Cart</h1>
-      <CartTotalAmount />
-      <CartProducts />
+    <div className="App">
+      <CartComponent items={[sampleItems]} title={"sample title"} />
     </div>
   );
 }
 
-export default Cart;
+export default App;
 ```
