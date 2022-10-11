@@ -1,4 +1,3 @@
-import React from 'react'
 import { useSelector } from 'react-redux'
 import { useAppDispatch, useAppSelector } from '../hooks/store.hooks'
 import { getCartProduct, addToCart, removeFromCart, getTotalPrice } from '../redux/cart.reducer'
