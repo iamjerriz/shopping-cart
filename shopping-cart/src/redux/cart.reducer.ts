@@ -3,7 +3,7 @@ import { RootState } from "../store";
 import { Product } from "./product.reducer";
 
 
-interface CartProduct extends Product {
+export interface CartProduct extends Product {
     amount: number;
 }
 
