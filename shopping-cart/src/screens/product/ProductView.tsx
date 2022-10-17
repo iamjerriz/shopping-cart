@@ -6,11 +6,12 @@ import { Product } from "../../redux/product.reducer";
 interface Props {
     items: any[]
     title: string
+    showRemove: Boolean;
+    removeProdFunc: any;
   }
   
-export const ProductView = ({items, title}: Props) => {
+export const ProductView = ({items, title,  removeProdFunc, showRemove}: Props) => {
     const { handleRemoveFromCart, handleAddToCart, getCartProducts, getCartPrice } = UseViewModel();
-
 
     useState([{items}]);
 
@@ -22,7 +23,7 @@ export const ProductView = ({items, title}: Props) => {
             <div className="d-flex flex-wrap">
                 {
                     items[0][0][0].map((product: Product) => 
-                        <Card className="d-flex bg-white shadow-sm mb-3 col-3" style={{width: "45%", margin: "2%"}}>
+                        <Card className="d-flex bg-white shadow-sm mb-3 col-3  p-4" style={{width: "45%", margin: "2%", minWidth: "375px"}}>
                             <Card.Img 
                                 variant="top" 
                                 src={product.imgUrl} 
@@ -48,6 +49,13 @@ export const ProductView = ({items, title}: Props) => {
                                     :""}
                                     <Button className="w-10 col-4" onClick={() => handleRemoveFromCart(product.id)}>-</Button>
                                 </div>
+
+                                {
+                                    showRemove != false ?
+                                    <Button className="w-100 mt-4" onClick={() => removeProdFunc(product.id)}>Remove Product</Button>
+                                    :
+                                    null
+                                }
                             </Card.Body >
                         </Card>
                     )

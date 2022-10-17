@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Provider } from 'react-redux';
-import store from './store';
+import store, { RootState } from './store';
 import ProductView from './screens/product/ProductView';
 
 interface Props {
-  items: any[]
   title: string
+  items: any[]
+  showRemove: Boolean;
+  removeProdFunc: any;
 }
 
-export function App({items, title}: Props) {
-
+export function App({title, items, showRemove, removeProdFunc}: Props) {
+  
   return (
     <Provider store={store}>
       <div className="App w-100 d-flex">
-        <ProductView items={[items]} title={title}/>
+        <ProductView items={[items]} showRemove={showRemove} removeProdFunc={removeProdFunc} title={title} />
       </div>
     </Provider>
   );

@@ -4,7 +4,7 @@ A prototype of shopping cart using typescript and redux
 
 ## Installation
 
-npm i shopping-cart-jerriz-v1
+npm i shopping-cart-jerriz-v3
 
 ## Screenshots
 
@@ -15,6 +15,10 @@ npm i shopping-cart-jerriz-v1
 items = array of products to display
 
 title = string title of shopping cart to display
+
+removeProdFunc = Function that triggers on click
+
+showRemove = boolean to show remove product button
 
 ## Items Data Model
 
@@ -31,21 +35,33 @@ imgUrl : any
 ## Usage/Examples
 
 ```javascript
-import CartComponent from "shopping-cart-mvvm-ts-redux-v7";
+import logo from "./logo.svg";
+import "./App.css";
+import CartComponent from "jerriz-shoppingcart-v3";
 
 function App() {
-  //items to pass to the cart component
-  //can be json file or product to call on
-  let sampleItems = [
-    { id: 1, name: "Product 1", price: 1.0, quantity: 0, imgUrl: "https://sample.jpg" },
-    { id: 2, name: "Product 2", price: 21.0, quantity: 0, imgUrl: "https://sample.jpg" },
-    { id: 3, name: "Product 3", price: 20.0, quantity: 0, imgUrl: "https://sample.jpg" },
-    { id: 4, name: "Product 4", price: 10.0, quantity: 0, imgUrl: "https://sample.jpg" },
-  ];
+  const [products, setCart] = useState([
+    { id: 1, name: "name", price: 1.0, quantity: 0, imgUrl: "sample.png" },
+    { id: 2, name: "name", price: 21.0, quantity: 0, imgUrl: "sample.png" },
+    { id: 3, name: "name", price: 20.0, quantity: 0, imgUrl: "sample.png" },
+    { id: 4, name: "name", price: 10.0, quantity: 0, imgUrl: "sample.png" },
+  ]);
+
+  //sample function to remove product from store, and return new array
+  const remove = (id) => {
+    let newArr = products.filter((products) => products.id !== id);
+    setCart(newArr);
+    console.log("asd", newArr);
+  };
 
   return (
     <div className="App">
-      <CartComponent items={[sampleItems]} title={"sample title"} />
+      <CartComponent
+        items={[products]} //products
+        title={"Jerriz Store"} //title header
+        showRemove={false} //hide and show remove button
+        removeProdFunc={remove} //remove function
+      />
     </div>
   );
 }
