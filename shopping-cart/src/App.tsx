@@ -5,18 +5,23 @@ import store, { RootState } from './store';
 import ProductView from './screens/product/ProductView';
 
 interface Props {
-  title: string
   items: any[]
-  showRemove: Boolean;
-  removeProdFunc: any;
+  customBtnShow: Boolean;
+  customBtnText: string
+  customBtnFunc: any;
 }
 
-export function App({title, items, showRemove, removeProdFunc}: Props) {
-  
+export function App({items, customBtnText, customBtnShow, customBtnFunc}: Props) {
+
   return (
     <Provider store={store}>
       <div className="App w-100 d-flex">
-        <ProductView items={[items]} showRemove={showRemove} removeProdFunc={removeProdFunc} title={title} />
+        <ProductView 
+          items={[items]} 
+          customBtnText={customBtnText} 
+          customBtnShow={customBtnShow} 
+          customBtnFunc={customBtnFunc}
+          />
       </div>
     </Provider>
   );

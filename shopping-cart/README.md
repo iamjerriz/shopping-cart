@@ -4,7 +4,7 @@ A prototype of shopping cart using typescript and redux
 
 ## Installation
 
-npm i shopping-cart-jerriz-v3
+npm i shopping-cart-jerriz-v1
 
 ## Screenshots
 
@@ -14,11 +14,21 @@ npm i shopping-cart-jerriz-v3
 
 items = array of products to display
 
-title = string title of shopping cart to display
+customBtnShow: Boolean show custom buttom for every product
 
-removeProdFunc = Function that triggers on click
+customBtnText: string button custom title
 
-showRemove = boolean to show remove product button
+customBtnFunc: any function for custom button
+
+## Props
+
+items = array
+
+customBtnShow = boolean
+
+customBtnText = string
+
+customBtnFunc = function
 
 ## Items Data Model
 
@@ -58,9 +68,9 @@ function App() {
     <div className="App">
       <CartComponent
         items={[products]} //products
-        title={"Jerriz Store"} //title header
-        showRemove={false} //hide and show remove button
-        removeProdFunc={remove} //remove function
+        customBtnText="Remove Product" //custom button text
+        customBtnShow={true} // show custom button
+        customBtnFunc={remove} //pass remove function data out new array from mini app
       />
     </div>
   );

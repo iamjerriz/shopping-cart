@@ -5,12 +5,12 @@ import { Product } from "../../redux/product.reducer";
 
 interface Props {
     items: any[]
-    title: string
-    showRemove: Boolean;
-    removeProdFunc: any;
+    customBtnShow: Boolean;
+    customBtnText: string
+    customBtnFunc: any;
   }
   
-export const ProductView = ({items, title,  removeProdFunc, showRemove}: Props) => {
+export const ProductView = ({items, customBtnText,  customBtnFunc, customBtnShow}: Props) => {
     const { handleRemoveFromCart, handleAddToCart, getCartProducts, getCartPrice } = UseViewModel();
 
     useState([{items}]);
@@ -18,7 +18,7 @@ export const ProductView = ({items, title,  removeProdFunc, showRemove}: Props) 
     console.log("prods",items)
     return (
         <div className="text-center w-100">
-            <h1>{title}</h1>
+            <h1>Shopping Cart</h1>
         <div className="d-flex text-center w-100">
             <div className="d-flex flex-wrap">
                 {
@@ -51,8 +51,8 @@ export const ProductView = ({items, title,  removeProdFunc, showRemove}: Props) 
                                 </div>
 
                                 {
-                                    showRemove != false ?
-                                    <Button className="w-100 mt-4" onClick={() => removeProdFunc(product.id)}>Remove Product</Button>
+                                    customBtnShow != false ?
+                                    <Button className="w-100 mt-4" onClick={() => customBtnFunc(product.id)}>{customBtnText}</Button>
                                     :
                                     null
                                 }

@@ -3191,29 +3191,29 @@ function ProductListModel() {
 }
 
 var ProductView = function (_a) {
-    var items = _a.items, title = _a.title, removeProdFunc = _a.removeProdFunc, showRemove = _a.showRemove;
+    var items = _a.items, customBtnText = _a.customBtnText, customBtnFunc = _a.customBtnFunc, customBtnShow = _a.customBtnShow;
     var _b = ProductListModel(), handleRemoveFromCart = _b.handleRemoveFromCart, handleAddToCart = _b.handleAddToCart, getCartProducts = _b.getCartProducts, getCartPrice = _b.getCartPrice;
     useState([{ items: items }]);
     console.log("prods", items);
-    return (jsxs("div", __assign({ className: "text-center w-100" }, { children: [jsx("h1", { children: title }), jsxs("div", __assign({ className: "d-flex text-center w-100" }, { children: [jsx("div", __assign({ className: "d-flex flex-wrap" }, { children: items[0][0][0].map(function (product) {
+    return (jsxs("div", __assign({ className: "text-center w-100" }, { children: [jsx("h1", { children: "Shopping Cart" }), jsxs("div", __assign({ className: "d-flex text-center w-100" }, { children: [jsx("div", __assign({ className: "d-flex flex-wrap" }, { children: items[0][0][0].map(function (product) {
                             return jsxs(Card$1, __assign({ className: "d-flex bg-white shadow-sm mb-3 col-3  p-4", style: { width: "45%", margin: "2%", minWidth: "375px" } }, { children: [jsx(Card$1.Img, { variant: "top", src: product.imgUrl, height: "100px", width: "100px", style: { objectFit: "contain" } }), jsxs(Card$1.Body, __assign({ className: "d-flex flex-column" }, { children: [jsxs(Card$1.Title, __assign({ className: "d-flex flex-row justify-content-between align-items-baseline mb-4" }, { children: [jsx("span", __assign({ className: "fs-.5" }, { children: product.name })), jsxs("span", __assign({ className: "ms-2 text-muted" }, { children: ["\u20B1 ", product.price] }))] })), jsxs("div", __assign({ className: "d-flex flex-row justify-content-between w-100" }, { children: [jsx(Button$1, __assign({ className: "w-10 col-4", onClick: function () { return handleAddToCart(product); } }, { children: "+" })), getCartProducts.length > 0 ? getCartProducts.map(function (cart) {
                                                         return jsx("span", __assign({ className: "ml-4 mr-4 cart ".concat(cart.id != product.id ? "d-none" : "") }, { children: cart.id == product.id ? cart.amount > 0 ? cart.amount : "" : "" }));
                                                     })
-                                                        : "", jsx(Button$1, __assign({ className: "w-10 col-4", onClick: function () { return handleRemoveFromCart(product.id); } }, { children: "-" }))] })), showRemove != false ?
-                                                jsx(Button$1, __assign({ className: "w-100 mt-4", onClick: function () { return removeProdFunc(product.id); } }, { children: "Remove Product" }))
+                                                        : "", jsx(Button$1, __assign({ className: "w-10 col-4", onClick: function () { return handleRemoveFromCart(product.id); } }, { children: "-" }))] })), customBtnShow != false ?
+                                                jsx(Button$1, __assign({ className: "w-100 mt-4", onClick: function () { return customBtnFunc(product.id); } }, { children: customBtnText }))
                                                 :
                                                     null] }))] }));
                         }) })), jsxs("div", __assign({ className: "w-50 text-center" }, { children: [jsx("h3", { children: "Cart" }), jsxs("h5", { children: ["Total: ", getCartPrice] }), getCartProducts.map(function (product) { return (jsxs("div", __assign({ className: "d-flex justify-content-evenly mb-4" }, { children: [jsx("span", __assign({ style: { minWidth: "135px" } }, { children: product.name })), jsx("span", { children: product.amount }), jsx(Button$1, __assign({ onClick: function () { return handleRemoveFromCart(product.id); }, variant: "danger" }, { children: "Remove From Cart" }))] }), product.id)); })] }))] }))] })));
 };
 
 function App(_a) {
-    var title = _a.title, items = _a.items, showRemove = _a.showRemove, removeProdFunc = _a.removeProdFunc;
-    return (jsx(Provider, __assign({ store: store }, { children: jsx("div", __assign({ className: "App w-100 d-flex" }, { children: jsx(ProductView, { items: [items], showRemove: showRemove, removeProdFunc: removeProdFunc, title: title }) })) })));
+    var items = _a.items, customBtnText = _a.customBtnText, customBtnShow = _a.customBtnShow, customBtnFunc = _a.customBtnFunc;
+    return (jsx(Provider, __assign({ store: store }, { children: jsx("div", __assign({ className: "App w-100 d-flex" }, { children: jsx(ProductView, { items: [items], customBtnText: customBtnText, customBtnShow: customBtnShow, customBtnFunc: customBtnFunc }) })) })));
 }
 
 var CartComponent = function (_a) {
-    var title = _a.title, items = _a.items, showRemove = _a.showRemove, removeProdFunc = _a.removeProdFunc;
-    return (jsx(App, { items: [items], title: title, showRemove: showRemove, removeProdFunc: removeProdFunc }));
+    var items = _a.items, customBtnShow = _a.customBtnShow, customBtnText = _a.customBtnText, customBtnFunc = _a.customBtnFunc;
+    return (jsx(App, { items: [items], customBtnText: customBtnText, customBtnShow: customBtnShow, customBtnFunc: customBtnFunc }));
 };
 
 export { CartComponent as default };

@@ -2,16 +2,16 @@ import React from 'react';
 import App from './App';
 
 interface Props {
-  title: string
   items: any[]
-  showRemove: Boolean;
-  removeProdFunc: any;
+  customBtnShow: Boolean;
+  customBtnText: string
+  customBtnFunc: any;
 }
 
-const CartComponent = ({title, items, showRemove, removeProdFunc}: Props): JSX.Element => {
+const CartComponent = ({items, customBtnShow, customBtnText, customBtnFunc}: Props): JSX.Element => {
   
   return (
-    <App items={[items]} title={title} showRemove={showRemove} removeProdFunc={removeProdFunc}/>
+    <App items={[items]} customBtnText={customBtnText} customBtnShow={customBtnShow} customBtnFunc={customBtnFunc} />
   );
 }
 
