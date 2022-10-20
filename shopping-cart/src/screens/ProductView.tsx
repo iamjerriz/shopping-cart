@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
-import UseViewModel from "../../model/productListModel";
-import { Product } from "../../redux/product.reducer";
+import UseViewModel from "../model/cartUseModel";
+import { Product } from "../redux/cart.reducer";
 
 interface Props {
     items: any[]
@@ -22,8 +22,8 @@ export const ProductView = ({items, customBtnText,  customBtnFunc, customBtnShow
         <div className="d-flex text-center w-100">
             <div className="d-flex flex-wrap">
                 {
-                    items[0][0][0].map((product: Product) => 
-                        <Card className="d-flex bg-white shadow-sm mb-3 col-3  p-4" style={{width: "45%", margin: "2%", minWidth: "375px"}}>
+                    items[0].map((product: Product) => 
+                        <Card className="d-flex bg-white shadow-sm mb-3 col-3  p-4" style={{width: "45%", margin: "2%", minWidth: "375px"}} key={product.id}>
                             <Card.Img 
                                 variant="top" 
                                 src={product.imgUrl} 
@@ -40,13 +40,7 @@ export const ProductView = ({items, customBtnText,  customBtnFunc, customBtnShow
 
                                 <div className="d-flex flex-row justify-content-between w-100">
                                     <Button className="w-10 col-4" onClick={() => handleAddToCart(product)}>+</Button>
-                                    {
-                                        getCartProducts.length > 0 ? getCartProducts.map(cart =>
-                                            <span className={`ml-4 mr-4 cart ${cart.id != product.id ? "d-none" : ""}`}>
-                                                {cart.id == product.id ? cart.amount > 0 ? cart.amount : "" : ""}
-                                            </span>
-                                        )
-                                    :""}
+                                        <span className="ml-4 mr-4 cart ">{product.quantity}</span>
                                     <Button className="w-10 col-4" onClick={() => handleRemoveFromCart(product.id)}>-</Button>
                                 </div>
 
@@ -69,7 +63,7 @@ export const ProductView = ({items, customBtnText,  customBtnFunc, customBtnShow
                         getCartProducts.map(product => (
                             <div className="d-flex justify-content-evenly mb-4" key={product.id}>
                                 <span style={{minWidth: "135px"}}>{product.name}</span>
-                                <span>{product.amount}</span>
+                                <span>{product.quantity}</span>
                                 <Button onClick={() => handleRemoveFromCart(product.id)} variant="danger" >
                                 Remove From Cart
                                 </Button>

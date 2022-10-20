@@ -1,13 +1,10 @@
-import { useSelector } from 'react-redux'
 import { useAppDispatch, useAppSelector } from '../hooks/store.hooks'
-import { getCartProduct, addToCart, removeFromCart, getTotalPrice } from '../redux/cart.reducer'
-import { getProductsSelector, Product} from '../redux/product.reducer'
+import { getCartProduct, addToCart, removeFromCart, getTotalPrice, Product } from '../redux/cart.reducer'
 
 export default function ProductListModel() {
 
   const dispatch = useAppDispatch()
-  
-  const getProducts = useSelector(getProductsSelector)
+
 
   const getCartProducts = useAppSelector(getCartProduct)
   
@@ -21,7 +18,6 @@ export default function ProductListModel() {
   }
 
   return {
-    getProducts,
     getCartProducts,
     handleAddToCart,
     handleRemoveFromCart,
