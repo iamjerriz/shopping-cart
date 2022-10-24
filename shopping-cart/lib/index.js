@@ -433,9 +433,9 @@ var CustomButton = function (btn) {
 var CartView = function (_a) {
     var items = _a.items, btnFunction1 = _a.btnFunction1, btnFunction2 = _a.btnFunction2, btnText1 = _a.btnText1, btnText2 = _a.btnText2;
     console.log("miniapp-items", items);
-    return (jsxRuntime.jsx("div", { children: items[0][0][0].map(function (product) {
+    return (jsxRuntime.jsx("div", __assign({ className: "d-flex flex-wrap w-100" }, { children: items[0][0][0].map(function (product) {
             return jsxRuntime.jsxs(Card$1, __assign({ className: "d-flex bg-white shadow-sm m-2 col-2 p-1", style: { minWidth: "30%" } }, { children: [jsxRuntime.jsx(Card$1.Img, { className: "p-1", variant: "top", src: product.img, height: "100px", width: "100px", style: { objectFit: "contain" } }), jsxRuntime.jsxs(Card$1.Body, __assign({ className: "d-flex flex-column p-1" }, { children: [jsxRuntime.jsxs(Card$1.Title, __assign({ className: "d-flex flex-row justify-content-between my-3" }, { children: [jsxRuntime.jsx("span", __assign({ className: "fs-.5" }, { children: product.name })), jsxRuntime.jsxs("span", __assign({ className: "ms-2 text-muted" }, { children: ["\u20B1 ", product.price] }))] })), jsxRuntime.jsxs("div", __assign({ className: "d-flex flex-row justify-content-between" }, { children: [jsxRuntime.jsx(CustomButton, { text: btnText1, onClickFunction: btnFunction1, param: product }), jsxRuntime.jsx("span", __assign({ className: "ml-4 mr-4 cart " }, { children: product.quantity })), jsxRuntime.jsx(CustomButton, { text: btnText2, onClickFunction: btnFunction2, param: product })] }))] }))] }), product.id);
-        }) }));
+        }) })));
 };
 
 var App = function (_a) {
