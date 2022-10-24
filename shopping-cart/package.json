@@ -1,6 +1,6 @@
 {
-  "name": "jerriz-shoppingcart-v1",
-  "version": "1.2.0",
+  "name": "riz-shoppingcart-v2",
+  "version": "1.6.0",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
@@ -21,6 +21,7 @@
     "react-redux": "^8.0.4",
     "react-scripts": "5.0.1",
     "redux-devtools-extension": "^2.13.9",
+    "riz-shoppingcart-v2": "^1.1.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
