@@ -9,7 +9,7 @@ interface Props {
   btnText2: string;
 }
 
-const CartComponent = ({ items, btnFunction1, btnFunction2, btnText1, btnText2 }: Props): JSX.Element => {
+export const CartComponent = ({ items, btnFunction1, btnFunction2, btnText1, btnText2 }: Props): JSX.Element => {
 
   return (
     <App
