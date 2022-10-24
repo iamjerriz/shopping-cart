@@ -1,6 +1,6 @@
 {
   "name": "riz-shoppingcart-v2",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
