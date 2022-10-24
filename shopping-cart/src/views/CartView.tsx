@@ -3,13 +3,6 @@ import { Button, Card } from "react-bootstrap";
 import CustomButton from "../components/Button";
 import { itemsState } from "../types/itemTypes";
 
-export interface propTypes {
-    items: itemsState[];
-    titleProp: string;
-    keyProp: string;
-    showRemoveButton?: boolean;
-}
-
 interface Props {
     items: any[]
     btnFunction1: (event: any) => void;
@@ -21,6 +14,7 @@ interface Props {
 export const CartView = ({ items, btnFunction1, btnFunction2, btnText1, btnText2 }: Props) => {
 
     useState([{ items }]);
+    console.log("mini-app-items", items)
 
     return (
         <div className="text-center w-100">

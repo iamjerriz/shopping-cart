@@ -1,16 +1,25 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
 import App from './App';
 
-const container = document.getElementById('root')!;
-const root = createRoot(container);
+interface Props {
+  items: any[]
+  btnFunction1: (event: any) => void;
+  btnFunction2: (event: any) => void;
+  btnText1: string;
+  btnText2: string;
+}
 
-root.render(
-  <React.StrictMode>
-      <App />
-  </React.StrictMode>
-);
+const CartComponent = ({ items, btnFunction1, btnFunction2, btnText1, btnText2 }: Props): JSX.Element => {
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+  return (
+    <App
+      items={[items]}
+      btnFunction1={btnFunction1}
+      btnFunction2={btnFunction2}
+      btnText1={btnText1}
+      btnText2={btnText2}
+    />
+  );
+}
+
+export default CartComponent;
