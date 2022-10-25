@@ -7,9 +7,10 @@ interface Props {
   btnFunction2: (event: any) => void;
   btnText1: string;
   btnText2: string;
+  showListMode: boolean;
 }
 
-export const CartComponent = ({ items, btnFunction1, btnFunction2, btnText1, btnText2 }: Props): JSX.Element => {
+export const CartComponent = ({ items, btnFunction1, btnFunction2, btnText1, btnText2, showListMode }: Props): JSX.Element => {
 
   return (
     <App
@@ -18,6 +19,7 @@ export const CartComponent = ({ items, btnFunction1, btnFunction2, btnText1, btn
       btnFunction2={btnFunction2}
       btnText1={btnText1}
       btnText2={btnText2}
+      showListMode={showListMode}
     />
   );
 }

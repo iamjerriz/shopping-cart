@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Provider } from 'react-redux';
 import CartView from './views/CartView';
 
 interface Props {
@@ -9,9 +8,10 @@ interface Props {
   btnFunction2: (event: any) => void;
   btnText1: string;
   btnText2: string;
+  showListMode: boolean;
 }
 
-export const App = ({ items, btnFunction1, btnFunction2, btnText1, btnText2 }: Props): JSX.Element => {
+export const App = ({ items, btnFunction1, btnFunction2, btnText1, btnText2, showListMode }: Props): JSX.Element => {
 
   // const [products, setCart] = useState([
   //   { id: 1, name: "Beer", price: 1.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/57089256%20-%2001.jpg" },
@@ -20,7 +20,7 @@ export const App = ({ items, btnFunction1, btnFunction2, btnText1, btnText2 }: P
   //   { id: 4, name: "Blanca Mix", price: 10.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4800552169066-01.jpg" }
   // ]);
 
-  // const items = [
+  // const items1 = [
   //   { id: 1, name: "Beer", price: 1.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/57089256%20-%2001.jpg" },
   //   { id: 2, name: "Vinegar", price: 21.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4806515630291-1.jpg" },
   //   { id: 3, name: "Pork & Beans", price: 20.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/119593-01.jpg" },
@@ -51,6 +51,7 @@ export const App = ({ items, btnFunction1, btnFunction2, btnText1, btnText2 }: P
         btnFunction2={btnFunction2}
         btnText1={btnText1}
         btnText2={btnText2}
+        showListMode={showListMode}
       />
     </div>
   );
