@@ -19,10 +19,15 @@ export default function useCartModel() {
         dispatch(actionCreator.decrementQuantity(item))
     }
 
+    const removeItem = (item: itemState) => {
+        console.log("akljsd", item)
+        dispatch(actionCreator.removeItem(item))
+    }
 
     return {
         useCartSelector,
         increment,
         decrement,
+        removeItem
     }
 }

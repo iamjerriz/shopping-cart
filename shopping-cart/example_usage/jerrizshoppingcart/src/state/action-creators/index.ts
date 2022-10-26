@@ -36,10 +36,9 @@ export const decrementQuantity = (payload: itemState) => {
   }
 }
 
-export const removeItem = () => {
-  return (dispatch: Dispatch<Action>) => {
-    dispatch({
-      type: ActionType.REMOVEITEM
-    })
+export const removeItem = (payload: itemState) => {
+  return {
+    type: ActionType.REMOVEITEM,
+    payload
   }
 }

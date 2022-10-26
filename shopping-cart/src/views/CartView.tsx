@@ -22,7 +22,7 @@ export const CartView = ({ items, btnFunction1, btnFunction2, btnText1, btnText2
                     <div className="d-flex flex-wrap w-100">
                         {
                             items[0][0][0].map((product: itemsState) =>
-                                <Card className="d-flex m-2 p-1" style={{ minWidth: "20%" }} key={product.id}>
+                                <Card className="d-flex m-2 p-1" style={{ minWidth: "30%" }} key={product.id}>
                                     <Card.Img src={product.img} height="80px" width="80px" style={{ objectFit: "contain" }} />
                                     <Card.Body className="flex-column p-1">
                                         <div className="d-flex justify-content-between my-3">
@@ -44,7 +44,7 @@ export const CartView = ({ items, btnFunction1, btnFunction2, btnText1, btnText2
                     <div className="d-flex flex-column w-100">
                         {
                             items[0][0][0].map((product: itemsState) =>
-                                <Card className="d-flex flex-row justify-content-between p-2 m-2" style={{ minWidth: "150px" }}>
+                                <Card className={`d-flex flex-row justify-content-between p-2 m-2 ${product.quantity > 0 ? "" : "d-none"}`} style={{ minWidth: "150px" }}>
                                     <span className="fs-.5">{product.name}</span>
                                     <span className="ml-4 mr-4 cart ">{product.quantity}</span>
                                 </Card>

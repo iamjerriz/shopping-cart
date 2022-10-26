@@ -13,6 +13,7 @@ interface DecrementAction {
 
 interface RemoveAction {
   type: ActionType.REMOVEITEM
+  payload: itemState
 }
 
 export type Action = IncrementAction | DecrementAction | RemoveAction

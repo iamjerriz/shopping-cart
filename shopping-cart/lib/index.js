@@ -412,7 +412,7 @@ var CartView = function (_a) {
     console.log("showListMode", showListMode);
     return (React__default["default"].createElement("div", null, showListMode != true ?
         React__default["default"].createElement("div", { className: "d-flex flex-wrap w-100" }, items[0][0][0].map(function (product) {
-            return React__default["default"].createElement(Card$1, { className: "d-flex m-2 p-1", style: { minWidth: "20%" }, key: product.id },
+            return React__default["default"].createElement(Card$1, { className: "d-flex m-2 p-1", style: { minWidth: "30%" }, key: product.id },
                 React__default["default"].createElement(Card$1.Img, { src: product.img, height: "80px", width: "80px", style: { objectFit: "contain" } }),
                 React__default["default"].createElement(Card$1.Body, { className: "flex-column p-1" },
                     React__default["default"].createElement("div", { className: "d-flex justify-content-between my-3" },
@@ -427,7 +427,7 @@ var CartView = function (_a) {
         }))
         :
             React__default["default"].createElement("div", { className: "d-flex flex-column w-100" }, items[0][0][0].map(function (product) {
-                return React__default["default"].createElement(Card$1, { className: "d-flex flex-row justify-content-between p-2 m-2", style: { minWidth: "150px" } },
+                return React__default["default"].createElement(Card$1, { className: "d-flex flex-row justify-content-between p-2 m-2 ".concat(product.quantity > 0 ? "" : "d-none"), style: { minWidth: "150px" } },
                     React__default["default"].createElement("span", { className: "fs-.5" }, product.name),
                     React__default["default"].createElement("span", { className: "ml-4 mr-4 cart " }, product.quantity));
             }))));
@@ -460,7 +460,7 @@ var App = function (_a) {
     // const btnFunc2 = () => {
     //   console.log("btn2 Clicked")
     // }
-    return (React__default["default"].createElement("div", { className: "App w-100 d-flex" },
+    return (React__default["default"].createElement("div", { className: "App w-100 d-flex ".concat(showListMode != true ? "" : "justify-content-center") },
         React__default["default"].createElement(CartView, { items: [items], btnFunction1: btnFunction1, btnFunction2: btnFunction2, btnText1: btnText1, btnText2: btnText2, showListMode: showListMode })));
 };
 

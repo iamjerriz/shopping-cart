@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
-import useCartModel from './model/userCartModel';
-import { itemState } from './types/itemTypes';
-import { CartComponent } from 'riz-shoppingcart-v3';
+import CartView from './views/cartView';
 
 function App() {
 
-  const { increment, decrement, useCartSelector } = useCartModel()
 
   // items={[items]}
   // btnFunction1={btnFunction1}
@@ -20,30 +17,7 @@ function App() {
 
   return (
     <div className="App">
-
-      <div>
-        <CartComponent
-          items={[useCartSelector.data]}
-          btnFunction1={increment}
-          btnFunction2={decrement}
-          btnText1={"+"}
-          btnText2={"-"}
-          showListMode={false}
-        />
-      </div>
-
-      <div>
-        <span>TOTAL: {useCartSelector.total}</span>
-        <CartComponent
-          items={[useCartSelector.data]}
-          btnFunction1={increment}
-          btnFunction2={decrement}
-          showListMode={true}
-          btnText1={''}
-          btnText2={''}
-        />
-      </div>
-
+      <CartView />
     </div>
   );
 }

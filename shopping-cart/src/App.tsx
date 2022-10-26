@@ -44,7 +44,7 @@ export const App = ({ items, btnFunction1, btnFunction2, btnText1, btnText2, sho
   // }
 
   return (
-    <div className="App w-100 d-flex">
+    <div className={`App w-100 d-flex ${showListMode != true ? "" : "justify-content-center"}`}>
       <CartView
         items={[items]}
         btnFunction1={btnFunction1}

@@ -37,10 +37,20 @@ const reducer = (state = initialState, action: Action) => {
       const decrement = state.data.map(cart_item => {
         if (cart_item.id === action.payload.id) { cart_item.quantity -= 1 } return cart_item
       })
+
       return {
         ...state,
         data: decrement,
         total: getTotal(decrement)
+      }
+
+    case ActionType.REMOVEITEM:
+      const remove = state.data.filter((cart_item) => cart_item.id !== action.payload.id)
+
+      return {
+        ...state,
+        data: remove,
+        total: getTotal(remove)
       }
 
     // case ActionType.WITHDRAW:
