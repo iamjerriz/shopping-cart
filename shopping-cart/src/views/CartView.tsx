@@ -1,27 +1,17 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import CustomButton from "../components/Button";
-import { itemsState } from "../types/itemTypes";
+import { itemsState, propTypes } from "../types/itemTypes";
 
-interface Props {
-    items: any[]
-    btnFunction1: (event: any) => void;
-    btnFunction2: (event: any) => void;
-    btnText1?: string;
-    btnText2?: string;
-    showListMode: boolean;
-}
+export const CartView = ({ items, itemBtnFunction1, itemBtnFunction2, cartBtnFunction, btnText1, btnText2, cartMode }: propTypes) => {
 
-export const CartView = ({ items, btnFunction1, btnFunction2, btnText1, btnText2, showListMode }: Props) => {
-
-    console.log("showListMode", showListMode)
     return (
         <div>
             {
-                showListMode != true ?
+                cartMode != true ?
                     <div className="d-flex flex-wrap w-100">
                         {
-                            items[0][0][0].map((product: itemsState) =>
+                            items[0][0].map((product: itemsState) =>
                                 <Card className="d-flex m-2 p-1" style={{ minWidth: "30%" }} key={product.id}>
                                     <Card.Img src={product.img} height="80px" width="80px" style={{ objectFit: "contain" }} />
                                     <Card.Body className="flex-column p-1">
@@ -31,9 +21,9 @@ export const CartView = ({ items, btnFunction1, btnFunction2, btnText1, btnText2
                                         </div>
 
                                         <div className="d-flex flex-row justify-content-between align-items-center">
-                                            <CustomButton text={btnText1} onClickFunction={btnFunction1} param={product} />
+                                            <CustomButton text={btnText1} onClickFunction={itemBtnFunction1} param={product} />
                                             <span className="ml-4 mr-4 cart ">{product.quantity}</span>
-                                            <CustomButton text={btnText2} onClickFunction={btnFunction2} param={product} />
+                                            <CustomButton text={btnText2} onClickFunction={itemBtnFunction2} param={product} />
                                         </div>
                                     </Card.Body >
                                 </Card>
@@ -47,6 +37,7 @@ export const CartView = ({ items, btnFunction1, btnFunction2, btnText1, btnText2
                                 <Card className={`d-flex flex-row justify-content-between p-2 m-2 ${product.quantity > 0 ? "" : "d-none"}`} style={{ minWidth: "150px" }}>
                                     <span className="fs-.5">{product.name}</span>
                                     <span className="ml-4 mr-4 cart ">{product.quantity}</span>
+                                    <CustomButton text={"X"} onClickFunction={cartBtnFunction} param={product} />
                                 </Card>
                             )
                         }

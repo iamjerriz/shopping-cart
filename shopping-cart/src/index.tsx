@@ -1,25 +1,19 @@
 import React from 'react';
 import App from './App';
+import { propTypes } from './types/itemTypes';
+import CartView from './views/CartView';
 
-interface Props {
-  items: any[]
-  btnFunction1: (event: any) => void;
-  btnFunction2: (event: any) => void;
-  btnText1: string;
-  btnText2: string;
-  showListMode: boolean;
-}
-
-export const CartComponent = ({ items, btnFunction1, btnFunction2, btnText1, btnText2, showListMode }: Props): JSX.Element => {
+export const CartComponent = ({ items, itemBtnFunction1, itemBtnFunction2, cartBtnFunction, btnText1, btnText2, cartMode }: propTypes): JSX.Element => {
 
   return (
-    <App
+    <CartView
       items={[items]}
-      btnFunction1={btnFunction1}
-      btnFunction2={btnFunction2}
+      itemBtnFunction1={itemBtnFunction1}
+      itemBtnFunction2={itemBtnFunction2}
       btnText1={btnText1}
       btnText2={btnText2}
-      showListMode={showListMode}
+      cartMode={cartMode}
+      cartBtnFunction={cartBtnFunction}
     />
   );
 }

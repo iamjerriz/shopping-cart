@@ -6,7 +6,8 @@ interface Props {
     btnFunction2: (event: any) => void;
     btnText1: string;
     btnText2: string;
-    showListMode: boolean;
+    cartMode: boolean;
+    cartBtnFunction: (event: any) => void;
 }
-export declare const App: ({ items, btnFunction1, btnFunction2, btnText1, btnText2, showListMode }: Props) => JSX.Element;
+export declare const App: ({ items, btnFunction1, btnFunction2, cartBtnFunction, btnText1, btnText2, cartMode }: Props) => JSX.Element;
 export default App;

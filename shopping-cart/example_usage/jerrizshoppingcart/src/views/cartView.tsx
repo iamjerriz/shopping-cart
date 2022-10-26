@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import { CartComponent } from 'riz-shoppingcart-v3';
 import useCartModel from "../model/userCartModel";
@@ -13,7 +13,7 @@ export const CartView = () => {
         <CartComponent
           items={[useCartSelector.data]}
           btnFunction1={increment}
-          btnFunction2={removeItem}
+          btnFunction2={decrement}
           btnText1={"+"}
           btnText2={"-"}
           showListMode={false}
@@ -29,6 +29,7 @@ export const CartView = () => {
           showListMode={true}
           btnText1={''}
           btnText2={''}
+        // cartBtnFunction={removeItem}
         />
       </div>
     </div>

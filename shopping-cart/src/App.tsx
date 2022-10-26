@@ -8,10 +8,11 @@ interface Props {
   btnFunction2: (event: any) => void;
   btnText1: string;
   btnText2: string;
-  showListMode: boolean;
+  cartMode: boolean;
+  cartBtnFunction: (event: any) => void;
 }
 
-export const App = ({ items, btnFunction1, btnFunction2, btnText1, btnText2, showListMode }: Props): JSX.Element => {
+export const App = ({ items, btnFunction1, btnFunction2, cartBtnFunction, btnText1, btnText2, cartMode }: Props): JSX.Element => {
 
   // const [products, setCart] = useState([
   //   { id: 1, name: "Beer", price: 1.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/57089256%20-%2001.jpg" },
@@ -44,14 +45,15 @@ export const App = ({ items, btnFunction1, btnFunction2, btnText1, btnText2, sho
   // }
 
   return (
-    <div className={`App w-100 d-flex ${showListMode != true ? "" : "justify-content-center"}`}>
+    <div className={`App w-100 d-flex ${cartMode != true ? "" : "justify-content-center"}`}>
       <CartView
         items={[items]}
-        btnFunction1={btnFunction1}
-        btnFunction2={btnFunction2}
+        itemBtnFunction1={btnFunction1}
+        itemBtnFunction2={btnFunction2}
         btnText1={btnText1}
         btnText2={btnText2}
-        showListMode={showListMode}
+        cartMode={cartMode}
+        cartBtnFunction={cartBtnFunction}
       />
     </div>
   );

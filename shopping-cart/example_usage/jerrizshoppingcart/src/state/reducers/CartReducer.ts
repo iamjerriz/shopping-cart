@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { ActionType } from "../action-types"
 import { Action } from "../actions"
 
@@ -19,7 +20,6 @@ const initialState = {
   total: getTotal(dataItems)
 }
 
-
 const reducer = (state = initialState, action: Action) => {
   switch (action.type) {
 
@@ -35,9 +35,9 @@ const reducer = (state = initialState, action: Action) => {
 
     case ActionType.DECREMENTQUANTITY:
       const decrement = state.data.map(cart_item => {
-        if (cart_item.id === action.payload.id) { cart_item.quantity -= 1 } return cart_item
+        if (cart_item.id === action.payload.id) { cart_item.quantity != 0 ? cart_item.quantity -= 1 : cart_item.quantity = 0 }
+        return cart_item
       })
-
       return {
         ...state,
         data: decrement,
@@ -52,12 +52,6 @@ const reducer = (state = initialState, action: Action) => {
         data: remove,
         total: getTotal(remove)
       }
-
-    // case ActionType.WITHDRAW:
-    //   return state - action.payload
-
-    // case ActionType.BANKRUPT:
-    //   return 0
 
     default:
       return state

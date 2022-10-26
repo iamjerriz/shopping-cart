@@ -1,11 +1,4 @@
 /// <reference types="react" />
-interface Props {
-    items: any[];
-    btnFunction1: (event: any) => void;
-    btnFunction2: (event: any) => void;
-    btnText1?: string;
-    btnText2?: string;
-    showListMode: boolean;
-}
-export declare const CartView: ({ items, btnFunction1, btnFunction2, btnText1, btnText2, showListMode }: Props) => JSX.Element;
+import { propTypes } from "../types/itemTypes";
+export declare const CartView: ({ items, itemBtnFunction1, itemBtnFunction2, cartBtnFunction, btnText1, btnText2, cartMode }: propTypes) => JSX.Element;
 export default CartView;
