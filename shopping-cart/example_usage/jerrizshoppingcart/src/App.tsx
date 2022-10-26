@@ -39,6 +39,8 @@ function App() {
           btnFunction1={increment}
           btnFunction2={decrement}
           showListMode={true}
+          btnText1={''}
+          btnText2={''}
         />
       </div>
 
