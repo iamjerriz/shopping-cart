@@ -8,27 +8,27 @@ npm i riz-shoppingcart-v7
 
 ## Documentation
 
-items = array of products to display 
+items  =  array of products to display 
 
-storeName = show custom store name
+storeName  =  show custom store name
 
-customBtnShow = show custom button below added cart items
+customBtnShow  =  show custom button below added cart items
 
-customBtnFunc = add function for custom button
+customBtnFunc  =  add function for custom button
 
-customBtnText = custom button text
+customBtnText  =  custom button text
 
 ## Props
 
-items = array
+items =  array
 
-storeName = string
+storeName  =  string
 
-customBtnShow = bolean
+customBtnShow  =  bolean
 
-customBtnFunc = function
+customBtnFunc  =  function
 
-customBtnText = string
+customBtnText  =  string
 
 
 ## Items Data Model
