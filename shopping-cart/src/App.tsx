@@ -1,18 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import CartView from './views/CartView';
+import { propTypes } from './types/itemTypes';
 
-interface Props {
-  items: any[]
-  btnFunction1: (event: any) => void;
-  btnFunction2: (event: any) => void;
-  btnText1: string;
-  btnText2: string;
-  cartMode: boolean;
-  cartBtnFunction: (event: any) => void;
-}
-
-export const App = ({ items, btnFunction1, btnFunction2, cartBtnFunction, btnText1, btnText2, cartMode }: Props): JSX.Element => {
+export const App = ({ items, cartMode }: propTypes): JSX.Element => {
 
   // const [products, setCart] = useState([
   //   { id: 1, name: "Beer", price: 1.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/57089256%20-%2001.jpg" },
@@ -48,12 +39,7 @@ export const App = ({ items, btnFunction1, btnFunction2, cartBtnFunction, btnTex
     <div className={`App w-100 d-flex ${cartMode != true ? "" : "justify-content-center"}`}>
       <CartView
         items={[items]}
-        itemBtnFunction1={btnFunction1}
-        itemBtnFunction2={btnFunction2}
-        btnText1={btnText1}
-        btnText2={btnText2}
         cartMode={cartMode}
-        cartBtnFunction={cartBtnFunction}
       />
     </div>
   );

@@ -1,28 +1,31 @@
 import { useState } from "react"
 import { ActionType } from "../action-types"
 import { Action } from "../actions"
+import { itemState } from "src/types/itemTypes"
 
 
-const dataItems = [
-  { id: 1, name: "Beer", price: 1.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/57089256%20-%2001.jpg" },
-  { id: 2, name: "Vinegar", price: 21.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4806515630291-1.jpg" },
-  { id: 3, name: "Pork & Beans", price: 20.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/119593-01.jpg" },
-  { id: 4, name: "Blanca Mix", price: 10.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4800552169066-01.jpg" }
-]
+const dataModel = [{ id: 0, name: "sample name", price: 0, quantity: 0, img: "sample-image.jpg" },]
 
-const getTotal = (value: typeof dataItems) => {
-  console.log("value", value)
+const getTotal = (value: typeof dataModel) => {
   return value.map(x => x.price * x.quantity).reduce((a: number, b: number) => a + b, 0)
 }
 
 const initialState = {
-  data: dataItems,
+  data: dataModel,
+  total: 0
 }
 
 const reducer = (state = initialState, action: Action) => {
   switch (action.type) {
 
+    case ActionType.GETDATA:
+      return {
+        ...state,
+        data: action.payload
+      }
+
     case ActionType.INCREMENTQUANTITY:
+      console.log("new data", state.data)
       const increment = state.data.map(cart_item => {
         if (cart_item.id === action.payload.id) { cart_item.quantity += 1 } return cart_item
       })

@@ -1,11 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
-
-interface buttonProps {
-  text?: string;
-  onClickFunction: (event: any) => void;
-  param?: any;
-}
+import { buttonProps } from 'src/types/itemTypes';
 
 export const CustomButton = (btn: buttonProps) => {
   return (

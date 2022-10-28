@@ -1,16 +1,20 @@
-export interface itemsState {
+export interface itemState {
     id: number;
     name: string;
     quantity: number;
     img: string;
     price: number;
 }
+export interface buttonProps {
+    text?: string;
+    onClickFunction: (event: any) => void;
+    param?: any;
+}
+export interface items {
+    items: any[];
+}
 export interface propTypes {
     items: any[];
-    itemBtnFunction1: (event: any) => void;
-    itemBtnFunction2: (event: any) => void;
-    btnText1?: string;
-    btnText2?: string;
     cartMode?: boolean;
-    cartBtnFunction: (event: any) => void;
+    storeName?: string;
 }

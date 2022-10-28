@@ -4,7 +4,7 @@ A prototype of shopping cart using typescript and redux
 
 ## Installation
 
-npm i shopping-cart-jerriz-v1
+npm i riz-shoppingcart-v4
 
 ## Screenshots
 
@@ -14,21 +14,18 @@ npm i shopping-cart-jerriz-v1
 
 items = array of products to display
 
-customBtnShow: Boolean show custom buttom for every product
+cartMode: show added items in your cart section with remove item button
 
-customBtnText: string button custom title
-
-customBtnFunc: any function for custom button
+storeName: show custom store name
 
 ## Props
 
 items = array
 
-customBtnShow = boolean
+cartMode = boolean
 
-customBtnText = string
+storeName = string
 
-customBtnFunc = function
 
 ## Items Data Model
 
@@ -40,41 +37,40 @@ id : number
 
 quantity : number
 
-imgUrl : any
+img : any
 
 ## Usage/Examples
 
 ```javascript
-import logo from "./logo.svg";
-import "./App.css";
-import CartComponent from "jerriz-shoppingcart-v3";
+import React from 'react';
+import CartComponent from 'riz-shoppingcart-v4';
+import './App.css';
 
 function App() {
-  const [products, setCart] = useState([
-    { id: 1, name: "name", price: 1.0, quantity: 0, imgUrl: "sample.png" },
-    { id: 2, name: "name", price: 21.0, quantity: 0, imgUrl: "sample.png" },
-    { id: 3, name: "name", price: 20.0, quantity: 0, imgUrl: "sample.png" },
-    { id: 4, name: "name", price: 10.0, quantity: 0, imgUrl: "sample.png" },
+
+  const items = ([
+    { id: 1, name: "Beer", price: 1.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/57089256%20-%2001.jpg" },
+    { id: 2, name: "Vinegar", price: 21.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4806515630291-1.jpg" },
+    { id: 3, name: "Pork & Beans", price: 20.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/119593-01.jpg" },
+    { id: 4, name: "Blanca Mix", price: 10.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4800552169066-01.jpg" },
+    { id: 5, name: "Cookies", price: 12.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4809014286044-01.jpg" },
+    { id: 6, name: "Chocolate", price: 20.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/5902768865677-01.jpg" },
+    { id: 7, name: "Powder Mix", price: 15.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/8936066340397-01.jpg" },
+    { id: 8, name: "Tomato Sauce", price: 13.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/133083-1_1_.jpg" },
+    { id: 8, name: "Liver Spread", price: 25.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/104400-01_7.jpg" },
   ]);
 
-  //sample function to remove product from store, and return new array
-  const remove = (id) => {
-    let newArr = products.filter((products) => products.id !== id);
-    setCart(newArr);
-    console.log("asd", newArr);
-  };
-
   return (
-    <div className="App">
-      <CartComponent
-        items={[products]} //products
-        customBtnText="Remove Product" //custom button text
-        customBtnShow={true} // show custom button
-        customBtnFunc={remove} //pass remove function data out new array from mini app
-      />
+    <div className="App d-flex">
+      <CartComponent 
+        items={[items]} // items array
+        cartMode={false} // show added items in your cart
+        storeName={"Jerriz Store"} // custom store name
+      /> 
     </div>
   );
 }
 
 export default App;
+
 ```

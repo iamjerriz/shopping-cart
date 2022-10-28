@@ -1,21 +1,39 @@
 import React from 'react';
-import App from './App';
+import { Provider } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.css';
+import { store } from './state';
 import { propTypes } from './types/itemTypes';
 import CartView from './views/CartView';
 
-export const CartComponent = ({ items, itemBtnFunction1, itemBtnFunction2, cartBtnFunction, btnText1, btnText2, cartMode }: propTypes): JSX.Element => {
+export const CartComponent = ({ items, cartMode, storeName }: propTypes): JSX.Element => {
 
   return (
-    <CartView
-      items={[items]}
-      itemBtnFunction1={itemBtnFunction1}
-      itemBtnFunction2={itemBtnFunction2}
-      btnText1={btnText1}
-      btnText2={btnText2}
-      cartMode={cartMode}
-      cartBtnFunction={cartBtnFunction}
-    />
+    <React.StrictMode>
+      <Provider store={store}>
+        <CartView
+          items={[items]}
+          cartMode={cartMode}
+          storeName={storeName}
+        />
+      </Provider>
+    </React.StrictMode>
   );
 }
 
 export default CartComponent;
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import App from './App';
+// import { Provider } from 'react-redux';
+// import { store } from "./state/index"
+
+// const root = ReactDOM.createRoot(
+//   document.getElementById('root') as HTMLElement
+// );
+// root.render(
+//   <React.StrictMode>
+//     <Provider store={store}>
+//       <App />
+//     </Provider>
+//   </React.StrictMode>
+// );
