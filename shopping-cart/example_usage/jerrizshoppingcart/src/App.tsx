@@ -11,16 +11,13 @@ function App() {
     { id: 4, name: "Blanca Mix", price: 10.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4800552169066-01.jpg" },
     { id: 5, name: "Cookies", price: 12.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4809014286044-01.jpg" },
     { id: 6, name: "Chocolate", price: 20.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/5902768865677-01.jpg" },
-    { id: 7, name: "Powder Mix", price: 15.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/8936066340397-01.jpg" },
-    { id: 8, name: "Tomato Sauce", price: 13.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/133083-1_1_.jpg" },
-    { id: 8, name: "Liver Spread", price: 25.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/104400-01_7.jpg" },
   ]);
 
   return (
     <div className="App d-flex">
       <CartComponent
         items={[items]}
-        cartMode={true}
+        cartMode={false}
         storeName={"Jerriz Store"} />
     </div>
   );

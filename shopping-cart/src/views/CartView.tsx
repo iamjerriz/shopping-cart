@@ -39,7 +39,7 @@ export const CartView = ({ items, cartMode, storeName }: propTypes) => {
             {
                 cartMode == true ?
                     <div className="d-flex flex-column w-50">
-                        <h1>Your Cart</h1>
+                        <h1 className="mb-4">Your Cart</h1>
                         <span>TOTAL: {useCartSelector.total}</span>
                         {
                             items[0][0].map((product: itemState) =>
@@ -54,6 +54,7 @@ export const CartView = ({ items, cartMode, storeName }: propTypes) => {
                     </div>
                     :
                     <div className="d-flex flex-column w-50">
+                        <h1 className="mb-4">Your Cart</h1>
                         <span>TOTAL: <strong>{useCartSelector.total}</strong></span>
                     </div>
             }
