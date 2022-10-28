@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CartComponent from 'riz-shoppingcart-v6';
+import CartComponent from 'riz-shoppingcart-v7';
 import './App.css';
 
 function App() {

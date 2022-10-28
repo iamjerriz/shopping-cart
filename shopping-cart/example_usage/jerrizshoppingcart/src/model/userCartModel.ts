@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreator } from '../state/index';
-import { items, itemState } from '../types/itemTypes';
+import { itemState } from '../types/itemTypes';
 
 
 export default function useCartModel() {

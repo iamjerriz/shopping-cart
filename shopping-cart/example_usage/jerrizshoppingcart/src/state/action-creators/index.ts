@@ -1,7 +1,5 @@
 import { ActionType } from "../action-types"
-import { Dispatch } from "redux"
-import { Action } from "../actions"
-import { items, itemState } from "../../types/itemTypes"
+import { itemState } from "../../types/itemTypes"
 
 
 // export const incrementQuantity = (payload: itemState) => {

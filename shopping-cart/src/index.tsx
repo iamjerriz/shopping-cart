@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { store } from './state';
 import { propTypes } from './types/itemTypes';
 import CartView from './views/CartView';
+import './views/cart.css';
 
 export const CartComponent = ({ items, storeName, customBtnShow, customBtnText, customBtnFunc }: propTypes): JSX.Element => {
 

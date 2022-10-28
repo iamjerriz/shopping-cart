@@ -10,7 +10,6 @@ interface buttonProps {
 export const CustomButton = (btn: buttonProps) => {
   return (
     <Button
-      style={{ minWidth: "250px", maxWidth: "250px", height: "40px" }}
       className='custom-button bg-secondary'
       onClick={() => btn.onClickFunction(btn.param)}>
       {btn.text}

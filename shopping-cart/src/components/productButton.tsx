@@ -10,8 +10,7 @@ interface buttonProps {
 export const ProductButton = (btn: buttonProps) => {
   return (
     <Button
-      style={{ width: "40px", height: "40px" }}
-      className='bg-secondary rounded-circle border-0'
+      className='product-button bg-secondary'
       onClick={() => btn.onClickFunction(btn.param)}>
       {btn.text}
     </Button>

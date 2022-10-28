@@ -1,4 +1,4 @@
-import { itemState, items } from "../../types/itemTypes"
+import { itemState } from "../../types/itemTypes"
 import { ActionType } from "../action-types"
 
 interface IncrementAction {
