@@ -1,12 +1,17 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
-import { buttonProps } from 'src/types/itemTypes';
+
+interface buttonProps {
+  text?: string;
+  onClickFunction: (event: any) => void;
+  param?: any;
+}
 
 export const CustomButton = (btn: buttonProps) => {
   return (
     <Button
-      style={{ width: "40px", height: "40px" }}
-      className='custom-button bg-secondary rounded-circle border-0'
+      style={{ minWidth: "250px", maxWidth: "250px", height: "40px" }}
+      className='custom-button bg-secondary'
       onClick={() => btn.onClickFunction(btn.param)}>
       {btn.text}
     </Button>

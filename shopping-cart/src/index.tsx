@@ -5,15 +5,17 @@ import { store } from './state';
 import { propTypes } from './types/itemTypes';
 import CartView from './views/CartView';
 
-export const CartComponent = ({ items, cartMode, storeName }: propTypes): JSX.Element => {
+export const CartComponent = ({ items, storeName, customBtnShow, customBtnText, customBtnFunc }: propTypes): JSX.Element => {
 
   return (
     <React.StrictMode>
       <Provider store={store}>
         <CartView
           items={[items]}
-          cartMode={cartMode}
           storeName={storeName}
+          customBtnShow={customBtnShow}
+          customBtnFunc={customBtnFunc}
+          customBtnText={customBtnText}
         />
       </Provider>
     </React.StrictMode>

@@ -4,24 +4,15 @@ A prototype of shopping cart using typescript and redux
 
 ## Installation
 
-npm i riz-shoppingcart-v4
-
-## Screenshots
-
-cartMode = false
-![App Screenshot](https://i.ibb.co/3WbchzZ/output2.png)
-
-cartMode = true
-![App Screenshot](https://i.ibb.co/mSjWLbd/output1.png)
-
+npm i riz-shoppingcart-v5
 
 ## Documentation
 
 items = array of products to display
 
-cartMode: show added items in your cart section with remove item button
+cartMode = show added items in your cart section with remove item button
 
-storeName: show custom store name
+storeName = show custom store name
 
 ## Props
 
@@ -44,11 +35,26 @@ quantity : number
 
 img : any
 
+## Screenshots
+
+
+cartMode = false
+
+
+![App Screenshot](https://i.ibb.co/BjJBsNM/output2.png)
+
+
+cartMode = True
+
+
+![App Screenshot](https://i.ibb.co/4Jqr6KC/output1.png)
+
+
 ## Usage/Examples
 
 ```javascript
 import React from 'react';
-import CartComponent from 'riz-shoppingcart-v4';
+import CartComponent from 'riz-shoppingcart-v5';
 import './App.css';
 
 function App() {

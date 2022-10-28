@@ -1,5 +1,6 @@
 export enum ActionType {
   INCREMENTQUANTITY = "incrementQuantity",
   DECREMENTQUANTITY = "decrementQuantity",
-  REMOVEITEM = "removeItem"
+  REMOVEITEM = "removeItem",
+  GETDATA = "getdata"
 }

@@ -1,7 +1,7 @@
 import { ActionType } from "../action-types"
 import { Dispatch } from "redux"
 import { Action } from "../actions"
-import { itemState } from "../../types/itemTypes"
+import { items, itemState } from "../../types/itemTypes"
 
 
 // export const incrementQuantity = (payload: itemState) => {
@@ -39,6 +39,13 @@ export const decrementQuantity = (payload: itemState) => {
 export const removeItem = (payload: itemState) => {
   return {
     type: ActionType.REMOVEITEM,
+    payload
+  }
+}
+
+export const getData = (payload: itemState) => {
+  return {
+    type: ActionType.GETDATA,
     payload
   }
 }

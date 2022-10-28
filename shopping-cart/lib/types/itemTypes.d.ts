@@ -15,6 +15,8 @@ export interface items {
 }
 export interface propTypes {
     items: any[];
-    cartMode?: boolean;
     storeName?: string;
+    customBtnShow?: boolean;
+    customBtnFunc: (event: any) => void;
+    customBtnText?: string;
 }

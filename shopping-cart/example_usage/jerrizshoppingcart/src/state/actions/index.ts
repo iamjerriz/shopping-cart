@@ -1,4 +1,4 @@
-import { itemState } from "../../types/itemTypes"
+import { itemState, items } from "../../types/itemTypes"
 import { ActionType } from "../action-types"
 
 interface IncrementAction {
@@ -16,4 +16,9 @@ interface RemoveAction {
   payload: itemState
 }
 
-export type Action = IncrementAction | DecrementAction | RemoveAction
+interface GetDataAction {
+  type: ActionType.GETDATA
+  payload: itemState
+}
+
+export type Action = IncrementAction | DecrementAction | RemoveAction | GetDataAction

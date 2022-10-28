@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import CartView from './views/CartView';
 import { propTypes } from './types/itemTypes';
 
-export const App = ({ items, cartMode }: propTypes): JSX.Element => {
+export const App = ({ items }: propTypes): JSX.Element => {
 
   // const [products, setCart] = useState([
   //   { id: 1, name: "Beer", price: 1.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/57089256%20-%2001.jpg" },
@@ -36,11 +36,8 @@ export const App = ({ items, cartMode }: propTypes): JSX.Element => {
   // }
 
   return (
-    <div className={`App w-100 d-flex ${cartMode != true ? "" : "justify-content-center"}`}>
-      <CartView
-        items={[items]}
-        cartMode={cartMode}
-      />
+    <div >
+
     </div>
   );
 }

@@ -1,10 +1,10 @@
-import React from 'react';
-import CartComponent from 'riz-shoppingcart-v5';
+import React, { useState } from 'react';
+import CartComponent from 'riz-shoppingcart-v6';
 import './App.css';
 
 function App() {
 
-  const items = ([
+  const [products, setCart] = useState([
     { id: 1, name: "Beer", price: 1.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/57089256%20-%2001.jpg" },
     { id: 2, name: "Vinegar", price: 21.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4806515630291-1.jpg" },
     { id: 3, name: "Pork & Beans", price: 20.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/119593-01.jpg" },
@@ -13,14 +13,27 @@ function App() {
     { id: 6, name: "Chocolate", price: 20.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/5902768865677-01.jpg" },
   ]);
 
+  const [total, setTotal] = useState(0)
+
+
+  const getCartCount = () => {
+    let count = products.map(x => x.quantity).reduce((a: number, b: number) => a + b, 0)
+    return setTotal(count)
+  }
+
+
   return (
-    <div className="App d-flex">
+    <div className="App">
       <CartComponent
-        items={[items]}
-        cartMode={false}
-        storeName={"Jerriz Store"} />
+        items={products}
+        storeName={"Jerriz Store"}
+        customBtnShow={true}
+        customBtnFunc={getCartCount}
+        customBtnText={"Get total cart items"}
+      />
+      <span>Total Cart Items: {total}</span>
     </div>
   );
 }
 
-export default App;
+export default App

@@ -2599,21 +2599,25 @@ function useCartModel() {
     };
 }
 
+var ProductButton = function (btn) {
+    return (React__default.createElement(Button$1, { style: { width: "40px", height: "40px" }, className: 'bg-secondary rounded-circle border-0', onClick: function () { return btn.onClickFunction(btn.param); } }, btn.text));
+};
+
 var CustomButton = function (btn) {
-    return (React__default.createElement(Button$1, { style: { width: "40px", height: "40px" }, className: 'custom-button bg-secondary rounded-circle border-0', onClick: function () { return btn.onClickFunction(btn.param); } }, btn.text));
+    return (React__default.createElement(Button$1, { style: { minWidth: "250px", maxWidth: "250px", height: "40px" }, className: 'custom-button bg-secondary', onClick: function () { return btn.onClickFunction(btn.param); } }, btn.text));
 };
 
 var CartView = function (_a) {
-    var items = _a.items, cartMode = _a.cartMode, storeName = _a.storeName;
+    var items = _a.items, storeName = _a.storeName, customBtnShow = _a.customBtnShow, customBtnText = _a.customBtnText, customBtnFunc = _a.customBtnFunc;
     var _b = useCartModel(), increment = _b.increment, decrement = _b.decrement, removeItem = _b.removeItem, getData = _b.getData, useCartSelector = _b.useCartSelector;
     useEffect(function () {
-        return getData(items[0][0]);
+        return getData(items[0]);
     }, []);
     return (React__default.createElement("div", { className: "d-flex" },
         React__default.createElement("div", { className: "d-flex flex-wrap w-50" },
             React__default.createElement("h1", { className: "w-100" }, storeName),
-            items[0][0].map(function (product) {
-                return React__default.createElement(Card$1, { className: "d-flex m-2 p-1", style: { minWidth: "30%" }, key: product.id },
+            items[0].map(function (product) {
+                return React__default.createElement(Card$1, { className: "d-flex m-2 p-1", style: { minWidth: "225px" }, key: product.id },
                     React__default.createElement(Card$1.Img, { src: product.img, height: "160px", width: "160px", style: { objectFit: "cover", alignSelf: "center" } }),
                     React__default.createElement(Card$1.Body, { className: "p-1" },
                         React__default.createElement("div", { className: "d-flex justify-content-between my-3" },
@@ -2622,35 +2626,31 @@ var CartView = function (_a) {
                                 "\u20B1 ",
                                 product.price)),
                         React__default.createElement("div", { className: "d-flex flex-row justify-content-between align-items-center" },
-                            React__default.createElement(CustomButton, { text: "-", onClickFunction: decrement, param: product }),
+                            React__default.createElement(ProductButton, { text: "-", onClickFunction: decrement, param: product }),
                             React__default.createElement("span", { className: "ml-4 mr-4 cart " }, product.quantity),
-                            React__default.createElement(CustomButton, { text: "+", onClickFunction: increment, param: product }))));
+                            React__default.createElement(ProductButton, { text: "+", onClickFunction: increment, param: product }))));
             })),
-        cartMode == true ?
-            React__default.createElement("div", { className: "d-flex flex-column w-50" },
-                React__default.createElement("h1", { className: "mb-4" }, "Your Cart"),
-                React__default.createElement("span", null,
-                    "TOTAL: ",
-                    useCartSelector.total),
-                items[0][0].map(function (product) {
-                    return React__default.createElement(Card$1, { className: "d-flex flex-row justify-content-between p-2 m-2 ".concat(product.quantity > 0 ? "" : "d-none"), style: { minWidth: "250px", maxWidth: "250px", alignSelf: "center" } },
-                        React__default.createElement("span", { className: "fs-.5 w-50" }, product.name),
-                        React__default.createElement("span", { className: "ml-4 mr-4 cart " }, product.quantity),
-                        React__default.createElement(CustomButton, { text: "X", onClickFunction: removeItem, param: product }));
-                }))
-            :
-                React__default.createElement("div", { className: "d-flex flex-column w-50" },
-                    React__default.createElement("h1", { className: "mb-4" }, "Your Cart"),
-                    React__default.createElement("span", null,
-                        "TOTAL: ",
-                        React__default.createElement("strong", null, useCartSelector.total)))));
+        React__default.createElement("div", { className: "d-flex flex-column w-50" },
+            React__default.createElement("h1", { className: "mb-4" }, "Your Cart"),
+            React__default.createElement("span", null,
+                "TOTAL: ",
+                useCartSelector.total),
+            items[0].map(function (product) {
+                return React__default.createElement(Card$1, { className: "d-flex flex-row justify-content-between p-2 m-2 ".concat(product.quantity > 0 ? "" : "d-none"), style: { minWidth: "250px", maxWidth: "250px", alignSelf: "center", alignItems: "center" }, key: product.id },
+                    React__default.createElement("span", { className: "fs-.5 w-50" }, product.name),
+                    React__default.createElement("span", { className: "ml-4 mr-4 cart " }, product.quantity),
+                    React__default.createElement(ProductButton, { text: "X", onClickFunction: removeItem, param: product }));
+            }),
+            customBtnShow == true &&
+                React__default.createElement("div", { style: { alignSelf: "center", alignItems: "center" } },
+                    React__default.createElement(CustomButton, { text: customBtnText, onClickFunction: customBtnFunc })))));
 };
 
 var CartComponent = function (_a) {
-    var items = _a.items, cartMode = _a.cartMode, storeName = _a.storeName;
+    var items = _a.items, storeName = _a.storeName, customBtnShow = _a.customBtnShow, customBtnText = _a.customBtnText, customBtnFunc = _a.customBtnFunc;
     return (React__default.createElement(React__default.StrictMode, null,
         React__default.createElement(Provider, { store: store },
-            React__default.createElement(CartView, { items: [items], cartMode: cartMode, storeName: storeName }))));
+            React__default.createElement(CartView, { items: [items], storeName: storeName, customBtnShow: customBtnShow, customBtnFunc: customBtnFunc, customBtnText: customBtnText }))));
 };
 // import React from 'react';
 // import ReactDOM from 'react-dom/client';
