@@ -3,9 +3,9 @@ import { Card } from "react-bootstrap";
 import useCartModel from "src/model/useCartViewModel";
 import { ProductButton } from "../components/productButton";
 import { CustomButton } from "../components/customButton";
-import { iItemState, iAppProps } from "../types/itemTypes";
+import { iItemState, iShoppingCartProps } from "../types/types";
 
-export const CartView = ({ items, storeName, customBtnShow, customBtnText, customBtnFunc }: iAppProps) => {
+export const CartView = ({ items, storeName, customBtnShow, customBtnText, customBtnFunc }: iShoppingCartProps) => {
 
     const { increment, decrement, removeItem, getData, cartSelector } = useCartModel()
 

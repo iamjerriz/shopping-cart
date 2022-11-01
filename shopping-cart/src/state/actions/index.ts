@@ -1,4 +1,4 @@
-import { iItemState } from "../../types/itemTypes"
+import { iItemState } from "../../types/types"
 import { ActionType } from "../action-types"
 
 interface iIncrementAction {

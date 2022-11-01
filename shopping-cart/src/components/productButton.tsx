@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
-import { iButtonProps } from 'src/types/itemTypes';
+import { iButtonProps } from 'src/types/types';
 
 export const ProductButton = (btn: iButtonProps) => {
   return (

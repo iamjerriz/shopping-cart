@@ -1,20 +1,20 @@
-import { itemState } from "../../types/itemTypes";
+import { iItemState } from "../../types/types";
 import { ActionType } from "../action-types";
-interface IncrementAction {
+interface iIncrementAction {
     type: ActionType.INCREMENTQUANTITY;
-    payload: itemState;
+    payload: iItemState;
 }
-interface DecrementAction {
+interface iDecrementAction {
     type: ActionType.DECREMENTQUANTITY;
-    payload: itemState;
+    payload: iItemState;
 }
-interface RemoveAction {
+interface iRemoveAction {
     type: ActionType.REMOVEITEM;
-    payload: itemState;
+    payload: iItemState;
 }
-interface GetDataAction {
+interface iGetDataAction {
     type: ActionType.GETDATA;
-    payload: itemState;
+    payload: iItemState;
 }
-export declare type Action = IncrementAction | DecrementAction | RemoveAction | GetDataAction;
+export declare type Action = iIncrementAction | iDecrementAction | iRemoveAction | iGetDataAction;
 export {};

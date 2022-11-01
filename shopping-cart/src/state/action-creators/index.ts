@@ -1,5 +1,5 @@
 import { ActionType } from "../action-types"
-import { iItemState } from "../../types/itemTypes"
+import { iItemState } from "../../types/types"
 
 
 export const incrementQuantity = (payload: iItemState) => {

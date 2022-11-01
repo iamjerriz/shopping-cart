@@ -1,5 +1,5 @@
 import { Action } from "../actions";
-import { itemState } from "src/types/itemTypes";
+import { iItemState } from "src/types/types";
 declare const reducer: (state: {
     data: {
         id: number;
@@ -19,7 +19,7 @@ declare const reducer: (state: {
     }[];
     total: number;
 } | {
-    data: itemState;
+    data: iItemState;
     total: number;
 };
 export default reducer;

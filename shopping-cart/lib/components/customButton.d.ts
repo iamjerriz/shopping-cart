@@ -1,8 +1,4 @@
 /// <reference types="react" />
-interface buttonProps {
-    text?: string;
-    onClickFunction: (event: any) => void;
-    param?: any;
-}
-export declare const CustomButton: (btn: buttonProps) => JSX.Element;
+import { iButtonProps } from 'src/types/types';
+export declare const CustomButton: (btn: iButtonProps) => JSX.Element;
 export default CustomButton;

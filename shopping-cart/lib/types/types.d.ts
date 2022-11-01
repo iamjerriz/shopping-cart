@@ -10,7 +10,7 @@ export interface iButtonProps {
     onClickFunction: (event: any) => void;
     param?: any;
 }
-export interface iAppProps {
+export interface iShoppingCartProps {
     items: any[];
     storeName?: string;
     customBtnShow?: boolean;

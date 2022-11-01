@@ -13,7 +13,7 @@ export interface iButtonProps {
 }
 
 
-export interface iAppProps {
+export interface iShoppingCartProps {
   items: any[]
   storeName?: string;
   customBtnShow?: boolean;

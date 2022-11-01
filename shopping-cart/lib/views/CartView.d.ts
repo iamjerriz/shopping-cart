@@ -1,4 +1,4 @@
 /// <reference types="react" />
-import { propTypes } from "../types/itemTypes";
-export declare const CartView: ({ items, storeName, customBtnShow, customBtnText, customBtnFunc }: propTypes) => JSX.Element;
+import { iShoppingCartProps } from "../types/types";
+export declare const CartView: ({ items, storeName, customBtnShow, customBtnText, customBtnFunc }: iShoppingCartProps) => JSX.Element;
 export default CartView;

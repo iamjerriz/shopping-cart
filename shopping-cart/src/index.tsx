@@ -2,11 +2,11 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import { store } from './state';
-import { iAppProps } from './types/itemTypes';
+import { iShoppingCartProps } from './types/types';
 import CartView from './views/CartView';
 import './views/cart.css';
 
-export const CartComponent = ({ items, storeName, customBtnShow, customBtnText, customBtnFunc }: iAppProps): JSX.Element => {
+export const CartComponent = ({ items, storeName, customBtnShow, customBtnText, customBtnFunc }: iShoppingCartProps): JSX.Element => {
 
   return (
     <React.StrictMode>
