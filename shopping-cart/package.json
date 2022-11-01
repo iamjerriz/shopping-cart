@@ -1,6 +1,6 @@
 {
   "name": "riz-shoppingcart-v7",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
@@ -21,8 +21,6 @@
     "react-redux": "^8.0.4",
     "react-scripts": "5.0.1",
     "redux-devtools-extension": "^2.13.9",
-    "riz-shoppingcart-v2": "^1.1.0",
-    "riz-shoppingcart-v3": "^2.4.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -50,6 +48,9 @@
         }
       }
     ]
+  },
+  "engines": {
+    "node": "v14.15.4"
   },
   "browserslist": {
     "production": [

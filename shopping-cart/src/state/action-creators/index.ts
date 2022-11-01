@@ -1,49 +1,29 @@
 import { ActionType } from "../action-types"
-import { Dispatch } from "redux"
-import { Action } from "../actions"
-import { items, itemState } from "../../types/itemTypes"
+import { iItemState } from "../../types/itemTypes"
 
 
-// export const incrementQuantity = (payload: itemState) => {
-//   return (dispatch: Dispatch<Action>) => {
-//     dispatch({
-//       type: ActionType.INCREMENTQUANTITY,
-//       payload
-//     })
-//   }
-// }
-
-// export const decrementQuantity = (payload: itemState) => {
-//   return (dispatch: Dispatch<Action>) => {
-//     dispatch({
-//       type: ActionType.DECREMENTQUANTITY,
-//       payload
-//     })
-//   }
-// }
-
-export const incrementQuantity = (payload: itemState) => {
+export const incrementQuantity = (payload: iItemState) => {
   return {
     type: ActionType.INCREMENTQUANTITY,
     payload
   }
 }
 
-export const decrementQuantity = (payload: itemState) => {
+export const decrementQuantity = (payload: iItemState) => {
   return {
     type: ActionType.DECREMENTQUANTITY,
     payload
   }
 }
 
-export const removeItem = (payload: itemState) => {
+export const removeItem = (payload: iItemState) => {
   return {
     type: ActionType.REMOVEITEM,
     payload
   }
 }
 
-export const getData = (payload: itemState) => {
+export const getData = (payload: iItemState) => {
   return {
     type: ActionType.GETDATA,
     payload

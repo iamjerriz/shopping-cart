@@ -1,4 +1,4 @@
-export interface itemState {
+export interface iItemState {
   id: number;
   name: string;
   quantity: number;
@@ -6,21 +6,17 @@ export interface itemState {
   price: number;
 }
 
-export interface buttonProps {
+export interface iButtonProps {
   text?: string;
   onClickFunction: (event: any) => void;
   param?: any;
 }
 
-export interface items {
-  items: any[]
-}
 
-export interface propTypes {
+export interface iAppProps {
   items: any[]
   storeName?: string;
   customBtnShow?: boolean;
   customBtnFunc: (event: any) => void;
   customBtnText?: string
 }
-

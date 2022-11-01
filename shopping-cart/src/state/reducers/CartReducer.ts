@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ActionType } from "../action-types"
 import { Action } from "../actions"
-import { itemState } from "src/types/itemTypes"
+import { iItemState } from "src/types/itemTypes"
 
 
 const dataModel = [{ id: 0, name: "sample name", price: 0, quantity: 0, img: "sample-image.jpg" },]

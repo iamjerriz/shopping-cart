@@ -1,13 +1,8 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
+import { iButtonProps } from 'src/types/itemTypes';
 
-interface buttonProps {
-  text?: string;
-  onClickFunction: (event: any) => void;
-  param?: any;
-}
-
-export const ProductButton = (btn: buttonProps) => {
+export const ProductButton = (btn: iButtonProps) => {
   return (
     <Button
       className='product-button bg-secondary'

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
-import useCartModel from "src/model/userCartModel";
+import useCartModel from "src/model/useCartViewModel";
 import { ProductButton } from "../components/productButton";
 import { CustomButton } from "../components/customButton";
-import { itemState, propTypes, items } from "../types/itemTypes";
+import { iItemState, iAppProps } from "../types/itemTypes";
 
-export const CartView = ({ items, storeName, customBtnShow, customBtnText, customBtnFunc }: propTypes) => {
+export const CartView = ({ items, storeName, customBtnShow, customBtnText, customBtnFunc }: iAppProps) => {
 
-    const { increment, decrement, removeItem, getData, useCartSelector } = useCartModel()
+    const { increment, decrement, removeItem, getData, cartSelector } = useCartModel()
 
     useEffect(() => {
         return getData(items[0]);
@@ -18,7 +18,7 @@ export const CartView = ({ items, storeName, customBtnShow, customBtnText, custo
             <div className="product-section">
                 <h1 className="w-100">{storeName}</h1>
                 {
-                    items[0].map((product: itemState) =>
+                    items[0].map((product: iItemState) =>
                         <Card className="product-cart" key={product.id}>
                             <Card.Img className="product-card-image" src={product.img} />
                             <Card.Body className="p-1">
@@ -39,9 +39,9 @@ export const CartView = ({ items, storeName, customBtnShow, customBtnText, custo
             </div>
             <div className="cart-section">
                 <h1 className="mb-4">Your Cart</h1>
-                <span>TOTAL: {useCartSelector.total}</span>
+                <span>TOTAL: {cartSelector.total}</span>
                 {
-                    items[0].map((product: itemState) =>
+                    items[0].map((product: iItemState) =>
                         <Card className={`cart-card ${product.quantity > 0 ? "" : "d-none"}`} key={product.id}>
                             <span className="fs-.5 w-50">{product.name}</span>
                             <span className="ml-4 mr-4 cart ">{product.quantity}</span>
