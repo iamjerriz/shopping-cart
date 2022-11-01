@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { ActionType } from "../action-types"
 import { Action } from "../actions"
 import { iItemState } from "src/types/itemTypes"
@@ -26,8 +25,8 @@ const reducer = (state = initialState, action: Action) => {
 
     case ActionType.INCREMENTQUANTITY:
       console.log("new data", state.data)
-      const increment = state.data.map(cart_item => {
-        if (cart_item.id === action.payload.id) { cart_item.quantity += 1 } return cart_item
+      const increment = state.data.map(item => {
+        if (item.id === action.payload.id) { item.quantity += 1 } return item
       })
       return {
         ...state,
@@ -36,9 +35,9 @@ const reducer = (state = initialState, action: Action) => {
       }
 
     case ActionType.DECREMENTQUANTITY:
-      const decrement = state.data.map(cart_item => {
-        if (cart_item.id === action.payload.id) { cart_item.quantity != 0 ? cart_item.quantity -= 1 : cart_item.quantity = 0 }
-        return cart_item
+      const decrement = state.data.map(item => {
+        if (item.id === action.payload.id) { item.quantity != 0 ? item.quantity -= 1 : item.quantity = 0 }
+        return item
       })
       return {
         ...state,
@@ -47,9 +46,9 @@ const reducer = (state = initialState, action: Action) => {
       }
 
     case ActionType.REMOVEITEM:
-      const remove = state.data.map(cart_item => {
-        if (cart_item.id === action.payload.id) { cart_item.quantity != 0 ? cart_item.quantity = 0 : cart_item.quantity = cart_item.quantity }
-        return cart_item
+      const remove = state.data.map(item => {
+        if (item.id === action.payload.id) { item.quantity != 0 ? item.quantity = 0 : item.quantity = item.quantity }
+        return item
       })
 
       return {

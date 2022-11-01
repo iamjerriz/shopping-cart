@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Card } from "react-bootstrap";
 import useCartModel from "src/model/useCartViewModel";
 import { ProductButton } from "../components/productButton";
