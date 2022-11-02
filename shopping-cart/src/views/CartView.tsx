@@ -3,9 +3,9 @@ import { Card } from "react-bootstrap";
 import useCartModel from "src/model/useCartViewModel";
 import { ProductButton } from "../components/productButton";
 import { CustomButton } from "../components/customButton";
-import { iItemState, iShoppingCartProps } from "../types/types";
+import { IItemState, IShoppingCartProps } from "../types/types";
 
-export const CartView = ({ items, storeName, customBtnShow, customBtnText, customBtnFunc }: iShoppingCartProps) => {
+export const CartView = ({ items, customBtnShow, customBtnText, customBtnFunc }: IShoppingCartProps) => {
 
     const { increment, decrement, removeItem, getData, cartSelector } = useCartModel()
 
@@ -15,37 +15,31 @@ export const CartView = ({ items, storeName, customBtnShow, customBtnText, custo
 
     return (
         <div className="d-flex">
-            <div className="product-section">
-                <h1 className="w-100">{storeName}</h1>
-                {
-                    items[0].map((product: iItemState) =>
-                        <Card className="product-cart" key={product.id}>
-                            <Card.Img className="product-card-image" src={product.img} />
-                            <Card.Body className="p-1">
-                                <div className="d-flex justify-content-between my-3">
-                                    <span className="fs-.5">{product.name}</span>
-                                    <span className="fs-.5 text-muted">₱ {product.price}</span>
-                                </div>
-
-                                <div className="product-quantity-button">
-                                    <ProductButton text={"-"} onClickFunction={decrement} param={product} />
-                                    <span className="ml-4 mr-4 cart ">{product.quantity}</span>
-                                    <ProductButton text={"+"} onClickFunction={increment} param={product} />
-                                </div>
-                            </Card.Body >
-                        </Card>
-                    )
-                }
-            </div>
             <div className="cart-section">
                 <h1 className="mb-4">Your Cart</h1>
                 <span>TOTAL: {cartSelector.total}</span>
                 {
-                    items[0].map((product: iItemState) =>
-                        <Card className={`cart-card ${product.quantity > 0 ? "" : "d-none"}`} key={product.id}>
-                            <span className="fs-.5 w-50">{product.name}</span>
-                            <span className="ml-4 mr-4 cart ">{product.quantity}</span>
-                            <ProductButton text={"X"} onClickFunction={removeItem} param={product} />
+                    cartSelector.data.map((product: IItemState) =>
+                        <Card className={`cart-card ${product.quantity > 0 ? "" : ""}`} key={product.id}>
+
+                            <Card.Img className="cart-image" src={product.img} />
+
+                            <div className="cart-name-price">
+                                <span className="cart-name">{product.name}</span>
+                                <span className="cart-price">₱ {product.price}</span>
+                            </div>
+
+                            <span className="cart-quantity">x {product.quantity}</span>
+
+                            <div className="cart-buttons">
+                                <ProductButton text={"Remove"} onClickFunction={removeItem} param={product} />
+                                <div className="cart-quantity-button">
+                                    <ProductButton text={"-"} onClickFunction={decrement} param={product} />
+                                    <span className="cart-quantity">{product.quantity}</span>
+                                    <ProductButton text={"+"} onClickFunction={increment} param={product} />
+                                </div>
+                            </div>
+
                         </Card>
                     )
                 }

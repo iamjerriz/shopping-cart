@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
-import { iButtonProps } from 'src/types/types';
+import { IButtonProps } from 'src/types/types';
 
-export const CustomButton = (btn: iButtonProps) => {
+export const CustomButton = (btn: IButtonProps) => {
   return (
     <Button
       className='custom-button bg-secondary'

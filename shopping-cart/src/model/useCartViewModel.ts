@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreator } from '../state/index';
-import { iItemState } from '../types/types';
+import { IItemState } from '../types/types';
 
 
 export default function useCartViewModel() {
@@ -9,19 +9,19 @@ export default function useCartViewModel() {
 
     const dispatch = useDispatch();
 
-    const increment = (item: iItemState) => {
+    const increment = (item: IItemState) => {
         dispatch(actionCreator.incrementQuantity(item))
     }
 
-    const decrement = (item: iItemState) => {
+    const decrement = (item: IItemState) => {
         dispatch(actionCreator.decrementQuantity(item))
     }
 
-    const removeItem = (item: iItemState) => {
+    const removeItem = (item: IItemState) => {
         dispatch(actionCreator.removeItem(item))
     }
 
-    const getData = (item: iItemState) => {
+    const getData = (item: any[]) => {
         dispatch(actionCreator.getData(item))
     }
 

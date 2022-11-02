@@ -2,18 +2,17 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import { store } from './state';
-import { iShoppingCartProps } from './types/types';
+import { IShoppingCartProps } from './types/types';
 import CartView from './views/CartView';
 import './views/cart.css';
 
-export const CartComponent = ({ items, storeName, customBtnShow, customBtnText, customBtnFunc }: iShoppingCartProps): JSX.Element => {
+export const CartComponent = ({ items, customBtnShow, customBtnText, customBtnFunc }: IShoppingCartProps): JSX.Element => {
 
   return (
     <React.StrictMode>
       <Provider store={store}>
         <CartView
           items={[items]}
-          storeName={storeName}
           customBtnShow={customBtnShow}
           customBtnFunc={customBtnFunc}
           customBtnText={customBtnText}
@@ -24,11 +23,13 @@ export const CartComponent = ({ items, storeName, customBtnShow, customBtnText, 
 }
 
 export default CartComponent;
+
 // import React from 'react';
 // import ReactDOM from 'react-dom/client';
 // import App from './App';
 // import { Provider } from 'react-redux';
-// import { store } from "./state/index"
+// import { store } from "./state/index";
+// import './views/cart.css';
 
 // const root = ReactDOM.createRoot(
 //   document.getElementById('root') as HTMLElement

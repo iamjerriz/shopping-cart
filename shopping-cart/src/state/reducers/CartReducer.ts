@@ -1,16 +1,14 @@
 import { ActionType } from "../action-types"
 import { Action } from "../actions"
-import { iItemState } from "src/types/types"
+import { IItemState } from "src/types/types"
 
 
-const dataModel = [{ id: 0, name: "sample name", price: 0, quantity: 0, img: "sample-image.jpg" },]
-
-const getTotal = (value: typeof dataModel) => {
+const getTotal = (value: IItemState[]) => {
   return value.map(x => x.price * x.quantity).reduce((a: number, b: number) => a + b, 0)
 }
 
 const initialState = {
-  data: dataModel,
+  data: [],
   total: 0
 }
 
@@ -18,6 +16,7 @@ const reducer = (state = initialState, action: Action) => {
   switch (action.type) {
 
     case ActionType.GETDATA:
+      console.log("sd", action.payload)
       return {
         ...state,
         data: action.payload
@@ -25,7 +24,7 @@ const reducer = (state = initialState, action: Action) => {
 
     case ActionType.INCREMENTQUANTITY:
       console.log("new data", state.data)
-      const increment = state.data.map(item => {
+      const increment = state.data.map((item: IItemState) => {
         if (item.id === action.payload.id) { item.quantity += 1 } return item
       })
       return {
@@ -35,7 +34,7 @@ const reducer = (state = initialState, action: Action) => {
       }
 
     case ActionType.DECREMENTQUANTITY:
-      const decrement = state.data.map(item => {
+      const decrement = state.data.map((item: IItemState) => {
         if (item.id === action.payload.id) { item.quantity != 0 ? item.quantity -= 1 : item.quantity = 0 }
         return item
       })
@@ -46,11 +45,7 @@ const reducer = (state = initialState, action: Action) => {
       }
 
     case ActionType.REMOVEITEM:
-      const remove = state.data.map(item => {
-        if (item.id === action.payload.id) { item.quantity != 0 ? item.quantity = 0 : item.quantity = item.quantity }
-        return item
-      })
-
+      const remove = state.data.filter(item => item !== action.payload)
       return {
         ...state,
         data: remove,

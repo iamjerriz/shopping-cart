@@ -22,8 +22,6 @@ customBtnText  =  custom button text
 
 items =  array
 
-storeName  =  string
-
 customBtnShow  =  bolean
 
 customBtnFunc  =  function
@@ -45,8 +43,7 @@ img : any
 
 ## Screenshots
 
-
-![App Screenshot](https://i.ibb.co/hV5tqFp/asdcc.png)
+![App Screenshot](https://i.ibb.co/RHJDv5z/vvv.png)
 
 
 ## Usage/Examples
@@ -97,13 +94,26 @@ export default App
 
 ## riz-shoppingcart-v7 changelogs
 
-  v1.0.1 - rebuild and added cart mode feature
+  # v1.0.1 
+    - rebuild and added cart mode feature
 
-  v1.0.2 - removed cart mode, added custom button , redesign cart component
+  # v1.0.2 
+    - removed cart mode, added custom button , redesign cart component
 
-  v1.0.3 - fix custom button function and UI
+  # v1.0.3 
+    - fix custom button function and UI
 
-  v1.0.4 - fix naming convention, added node version in package.json(engine)
+  # v1.0.4 
+    - fix naming convention, added node version in package.json(engine)
+
+  # v1.1.0
+
+    -Redesign shopping cart
+    -removed product section
+    -Changed remove button from removing quantity to removing item
+    -fix naming convention
+    -recreate redux, removed dummy data
+    -updated readme
 
 ## Node Version
  node - v14.15.4

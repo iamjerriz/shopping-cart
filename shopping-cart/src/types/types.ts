@@ -1,4 +1,4 @@
-export interface iItemState {
+export interface IItemState {
   id: number;
   name: string;
   quantity: number;
@@ -6,16 +6,15 @@ export interface iItemState {
   price: number;
 }
 
-export interface iButtonProps {
+export interface IButtonProps {
   text?: string;
   onClickFunction: (event: any) => void;
   param?: any;
 }
 
 
-export interface iShoppingCartProps {
+export interface IShoppingCartProps {
   items: any[]
-  storeName?: string;
   customBtnShow?: boolean;
   customBtnFunc: (event: any) => void;
   customBtnText?: string

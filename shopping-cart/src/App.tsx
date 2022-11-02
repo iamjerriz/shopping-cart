@@ -1,42 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import CartView from './views/CartView';
 
 export const App = () => {
 
-  // const [products, setCart] = useState([
-  //   { id: 1, name: "Beer", price: 1.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/57089256%20-%2001.jpg" },
-  //   { id: 2, name: "Vinegar", price: 21.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4806515630291-1.jpg" },
-  //   { id: 3, name: "Pork & Beans", price: 20.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/119593-01.jpg" },
-  //   { id: 4, name: "Blanca Mix", price: 10.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4800552169066-01.jpg" }
-  // ]);
+  const [products, setProducts] = useState([
+    { id: 1, name: "Beer", price: 1.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/57089256%20-%2001.jpg" },
+    { id: 2, name: "Vinegar", price: 21.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4806515630291-1.jpg" },
+    { id: 3, name: "Pork & Beans", price: 20.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/119593-01.jpg" },
+    { id: 4, name: "Blanca Mix", price: 10.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4800552169066-01.jpg" },
+    // { id: 5, name: "Cookies", price: 12.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4809014286044-01.jpg" },
+    // { id: 6, name: "Chocolate", price: 20.00, quantity: 0, img: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/5902768865677-01.jpg" },
+  ]);
 
-  // const items1 = [
-  //   { id: 1, name: "Beer", price: 1.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/57089256%20-%2001.jpg" },
-  //   { id: 2, name: "Vinegar", price: 21.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4806515630291-1.jpg" },
-  //   { id: 3, name: "Pork & Beans", price: 20.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/119593-01.jpg" },
-  //   { id: 4, name: "Blanca Mix", price: 10.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4800552169066-01.jpg" },
-  //   { id: 4, name: "Blanca Mix", price: 10.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4800552169066-01.jpg" },
-  //   { id: 4, name: "Blanca Mix", price: 10.00, quantity: 0, imgUrl: "https://qa-centralmain.s3.ap-southeast-1.amazonaws.com/market/4800552169066-01.jpg" }
-  // ]
+  const [total, setTotal] = useState(0)
 
-  // const remove = (id: number) => {
-  //   let newArr = products.filter(products => products.id !== id);
-  //   setCart(newArr);
-  //   console.log("asd",newArr)
-  // }
-
-  // const btnFunc1 = () => {
-  //   console.log("btn1 Clicked")
-  // }
-
-  // const btnFunc2 = () => {
-  //   console.log("btn2 Clicked")
-  // }
+  const getCartCount = () => {
+    let count = products.map(x => x.quantity).reduce((a: number, b: number) => a + b, 0)
+    return setTotal(count)
+  }
 
   return (
     <div >
-
+      <CartView
+        items={products}
+        customBtnShow={true}
+        customBtnFunc={getCartCount}
+        customBtnText={"Get total cart items"}
+      />
+      <span>Total items : {total}</span>
     </div>
   );
 }
