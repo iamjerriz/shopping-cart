@@ -1,18 +1,18 @@
 import { ActionType } from "../action-types";
-import { iItemState } from "../../types/types";
-export declare const incrementQuantity: (payload: iItemState) => {
+import { IItemState } from "../../types/types";
+export declare const incrementQuantity: (payload: IItemState) => {
     type: ActionType;
-    payload: iItemState;
+    payload: IItemState;
 };
-export declare const decrementQuantity: (payload: iItemState) => {
+export declare const decrementQuantity: (payload: IItemState) => {
     type: ActionType;
-    payload: iItemState;
+    payload: IItemState;
 };
-export declare const removeItem: (payload: iItemState) => {
+export declare const removeItem: (payload: IItemState) => {
     type: ActionType;
-    payload: iItemState;
+    payload: IItemState;
 };
-export declare const getData: (payload: iItemState) => {
+export declare const getData: (payload: any[]) => {
     type: ActionType;
-    payload: iItemState;
+    payload: any[];
 };

@@ -1,4 +1,4 @@
 /// <reference types="react" />
-import { iButtonProps } from 'src/types/types';
-export declare const CustomButton: (btn: iButtonProps) => JSX.Element;
+import { IButtonProps } from 'src/types/types';
+export declare const CustomButton: (btn: IButtonProps) => JSX.Element;
 export default CustomButton;

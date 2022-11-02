@@ -1,25 +1,13 @@
 import { Action } from "../actions";
-import { iItemState } from "src/types/types";
+import { IItemState } from "src/types/types";
 declare const reducer: (state: {
-    data: {
-        id: number;
-        name: string;
-        price: number;
-        quantity: number;
-        img: string;
-    }[];
+    data: never[];
     total: number;
 } | undefined, action: Action) => {
-    data: {
-        id: number;
-        name: string;
-        price: number;
-        quantity: number;
-        img: string;
-    }[];
+    data: IItemState;
     total: number;
 } | {
-    data: iItemState;
+    data: IItemState[];
     total: number;
 };
 export default reducer;
